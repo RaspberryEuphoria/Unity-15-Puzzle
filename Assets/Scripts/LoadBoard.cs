@@ -309,8 +309,14 @@ public class LoadBoard : MonoBehaviour
 
     public List<Texture2D> SplitTextures()
     {
+        if (tileTexture.width != tileTexture.height)
+        {
+            CutSquareInTexture();
+        }
+
         int sourceWidth = tileTexture.width;
         int sourceHeight = tileTexture.height;
+
         Vector2Int textureSize = new Vector2Int(sourceWidth / rowAndColCount, sourceHeight / rowAndColCount);
 
         List<Texture2D> splitedTexture = new List<Texture2D>();
@@ -324,7 +330,6 @@ public class LoadBoard : MonoBehaviour
                 int bottomLeftPixelY = y * textureSize.y;
 
                 Color[] pixels = tileTexture.GetPixels(bottomLeftPixelX, bottomLeftPixelY, textureSize.x, textureSize.y);
-
                 Texture2D texture = new Texture2D(textureSize.x, textureSize.y, tileTexture.format, false);
 
                 texture.SetPixels(pixels);
@@ -335,5 +340,33 @@ public class LoadBoard : MonoBehaviour
         }
 
         return splitedTexture;
+    }
+
+    private void CutSquareInTexture()
+    {
+        int x = tileTexture.width; 
+        int y = tileTexture.height;
+
+        int smallestSize = Mathf.Min(x, y);
+
+        if (smallestSize == y)
+        {
+            Color[] pixels = tileTexture.GetPixels((x - y) / 2, 0, y, y);
+            Texture2D texture = new Texture2D(y, y, tileTexture.format, false);
+
+            texture.SetPixels(pixels);
+            texture.Apply();
+
+            tileTexture = texture;
+        } else
+        {
+            Color[] pixels = tileTexture.GetPixels(0, (y - x) / 2, x, x);
+            Texture2D texture = new Texture2D(x, x, tileTexture.format, false);
+
+            texture.SetPixels(pixels);
+            texture.Apply();
+
+            tileTexture = texture;
+        }
     }
 }
