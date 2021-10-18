@@ -3282,6 +3282,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 270269810}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &273077975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6399856484070252932, guid: 5ccc8e1a82addc64495e0dc46768f42a,
+    type: 3}
+  m_PrefabInstance: {fileID: 910982546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &273077978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273077975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92f6073360e8e1d48ab5a6e8dfcdc32b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileTexture: {fileID: 0}
 --- !u!1 &277041542
 GameObject:
   m_ObjectHideFlags: 0
@@ -10411,7 +10430,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 5ccc8e1a82addc64495e0dc46768f42a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 21.3
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5ccc8e1a82addc64495e0dc46768f42a,
         type: 3}
@@ -10421,7 +10440,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 5ccc8e1a82addc64495e0dc46768f42a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 50
+      value: 33.9
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5ccc8e1a82addc64495e0dc46768f42a,
         type: 3}
@@ -10461,8 +10480,18 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 5ccc8e1a82addc64495e0dc46768f42a,
         type: 3}
       propertyPath: m_Name
+      value: Photo_Frame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6399856484070252932, guid: 5ccc8e1a82addc64495e0dc46768f42a,
+        type: 3}
+      propertyPath: m_Name
       value: Photo
       objectReference: {fileID: 0}
+    - target: {fileID: 8480491952427280004, guid: 5ccc8e1a82addc64495e0dc46768f42a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6eb936848a3862e49b1f6f2b4a12e6d6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ccc8e1a82addc64495e0dc46768f42a, type: 3}
 --- !u!1001 &921551362
@@ -23113,7 +23142,7 @@ PrefabInstance:
     - target: {fileID: 5339855280245774693, guid: a112d57eebbf2974ba6f1922cfa9cc4b,
         type: 3}
       propertyPath: _DEBUG_DISABLE_SHUFFLE
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6817042919532271405, guid: a112d57eebbf2974ba6f1922cfa9cc4b,
         type: 3}
