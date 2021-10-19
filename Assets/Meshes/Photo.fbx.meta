@@ -1,14 +1,14 @@
 fileFormatVersion: 2
 guid: 5ccc8e1a82addc64495e0dc46768f42a
 ModelImporter:
-  serializedVersion: 26
+  serializedVersion: 19301
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
     second: Take 001
   externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -18,7 +18,8 @@ ModelImporter:
     resampleCurves: 0
     optimizeGameObjects: 0
     motionNodeName: <Root Transform>
-    rigImportErrors: 
+    rigImportErrors: "Avatar creation failed:\n\tCannot find root motion transform
+      'End'.\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -26,7 +27,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 1
-    animationCompression: 0
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -75,6 +76,7 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 0
     importLights: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -101,7 +103,6 @@ ModelImporter:
     normalSmoothingSource: 0
   referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
     serializedVersion: 3
     human: []
@@ -111,15 +112,20 @@ ModelImporter:
       position: {x: -0, y: 0.0000049999994, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
       scale: {x: 1, y: 1, z: 1}
-    - name: Photo_square
+    - name: Photo
       parentName: Photo(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: Articulation
+    - name: Bone_photo
       parentName: Photo(Clone)
       position: {x: -0, y: 0, z: -0.0000049999994}
-      rotation: {x: 0.7064339, y: 0.7064337, z: -0.030843474, w: 0.030843467}
+      rotation: {x: 0.70643383, y: -0.7064337, z: 0.030843528, w: 0.030843524}
+      scale: {x: 1, y: 1, z: 1}
+    - name: End
+      parentName: Bone_photo
+      position: {x: 8.999999, y: -0.0000007629394, z: 0.0000007629394}
+      rotation: {x: -0.00000024339147, y: 0.99904823, z: -0.00000012949548, w: -0.043619253}
       scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
@@ -129,13 +135,15 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 10
-    rootMotionBoneName: Articulation
+    rootMotionBoneName: Bone001
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
