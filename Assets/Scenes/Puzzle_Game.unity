@@ -3300,7 +3300,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92f6073360e8e1d48ab5a6e8dfcdc32b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileTexture: {fileID: 0}
 --- !u!1 &277041542
 GameObject:
   m_ObjectHideFlags: 0
@@ -23128,6 +23127,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Board
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339855280245774693, guid: a112d57eebbf2974ba6f1922cfa9cc4b,
+        type: 3}
+      propertyPath: difficulty
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5339855280245774693, guid: a112d57eebbf2974ba6f1922cfa9cc4b,
         type: 3}

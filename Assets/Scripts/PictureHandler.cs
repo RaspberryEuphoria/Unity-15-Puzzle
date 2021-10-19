@@ -4,17 +4,25 @@ using UnityEngine;
 
 public class PictureHandler : MonoBehaviour
 {
-    [Tooltip("A texture to split on the tiles.")]
-    public Texture2D tileTexture;
+    private GameState gameState;
+    private Texture2D pictureTexture;
 
-    void Start()
+    private void Start()
     {
-        tileTexture = GameObject.Find("Board").GetComponent<LoadBoard>().tileTexture;
-        gameObject.GetComponent<Renderer>().material.SetTexture("_MainTex", tileTexture);
+        gameState = GameObject.Find("GameState").GetComponent<GameState>();
     }
 
     void Update()
     {
-        
+        if (!gameState.isReady)
+        {
+            return;
+        }
+
+        if (pictureTexture == null)
+        {
+            pictureTexture = GameObject.Find("Board").GetComponent<LoadBoard>().tileTexture;
+            gameObject.GetComponent<Renderer>().material.SetTexture("_MainTex", pictureTexture);
+        }
     }
 }

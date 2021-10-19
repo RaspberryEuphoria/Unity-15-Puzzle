@@ -6,6 +6,13 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
+public enum Difficulty
+{
+    Easy,
+    Medium,
+    Hard,
+};
+
 public class LoadBoard : MonoBehaviour
 {
     [Header("Board configuration")]
@@ -15,6 +22,8 @@ public class LoadBoard : MonoBehaviour
     public Texture2D tileTexture;
     [Tooltip("A number of rows and columns for the board grid.")]
     public int rowAndColCount = 3;
+
+    public Difficulty difficulty;
 
     [Header("Debug options")]
     [Tooltip("Disable tiles shuffle")]
@@ -123,6 +132,7 @@ public class LoadBoard : MonoBehaviour
                 Tile tile = new Tile(newTileObject, splitedTexture[index], index, index);
                 tiles.Add(tile);
                 newTileObject.GetComponent<TileHandler>().SetTile(tile);
+                // @todo adapt  newCircleObject.transform.SetParent(circleObject.transform.parent.gameObject.transform);
 
                 index++;
             }
@@ -202,7 +212,6 @@ public class LoadBoard : MonoBehaviour
     public Vector3 GetTileNewPosition(float x, float y)
     {
         return new Vector3(-x * tileScale + scaleFactor, tileObject.transform.position.y, y * tileScale - scaleFactor);
-        // return new Vector3(-y * tileScale + scaleFactor, tileObject.transform.position.y, x * tileScale - scaleFactor);
     }
 
     public void SwapTiles(Tile firstTile, Tile secondTile)
@@ -247,7 +256,8 @@ public class LoadBoard : MonoBehaviour
             return inversions % 2 == 0;
         } else
         {
-            return inversions % 2 != 0; // @Todo verify if this works :)
+            // https://www.sitepoint.com/randomizing-sliding-puzzle-tiles/
+            return (inversions + rowAndColCount - hiddenTile.y + 1) % 2 == 0;
         }
 
     }
