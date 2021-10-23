@@ -281,3 +281,4 @@ namespace TMPro.EditorUtilities
         }
     }
 }
+        

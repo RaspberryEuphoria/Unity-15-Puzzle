@@ -401,4 +401,4 @@ namespace Packages.Rider.Editor
       }
     }
   }
-}
+}       

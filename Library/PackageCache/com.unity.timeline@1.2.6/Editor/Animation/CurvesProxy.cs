@@ -300,3 +300,4 @@ namespace UnityEditor.Timeline
         }
     }
 }
+ 

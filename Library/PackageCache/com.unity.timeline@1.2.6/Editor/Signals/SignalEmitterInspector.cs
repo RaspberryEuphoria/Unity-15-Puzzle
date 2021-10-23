@@ -375,3 +375,4 @@ namespace UnityEditor.Timeline.Signals
         }
     }
 }
+      

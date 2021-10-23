@@ -294,4 +294,4 @@ namespace UnityEditor
                 m_CollabButton.Clear();
         }
     }
-} // namespace
+} // namespace    

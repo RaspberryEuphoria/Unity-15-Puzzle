@@ -198,3 +198,4 @@ All notable changes to this package will be documented in this file. The format 
 - Fixed unevaluated animation tracks causing default pose (case 1109118)
 - Fixed drawing of Group Tracks when header is off-screen (case 876340)
 - Fixed drag and drop of objects inside a group being inserted outside (case 1011381, case 1014774)
+    

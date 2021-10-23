@@ -99,3 +99,4 @@ In Replace mode, when you drag to position a clip, the clip becomes translucent 
 _For example, the red arrow cursor indicates that dragging Clip 2A to the right overlaps Clip 2B. Releasing the clip cuts Clip 2B at the point where the overlap occurs._
 
 In Replace mode, trimming a clip is similar to positioning a clip. When you drag to trim a clip and it intersects another clip, the cursor changes to a red arrow and a red replacement line indicates where the overlap occurs. Releasing the trim cuts the intersecting clip at the red replacement line.
+    

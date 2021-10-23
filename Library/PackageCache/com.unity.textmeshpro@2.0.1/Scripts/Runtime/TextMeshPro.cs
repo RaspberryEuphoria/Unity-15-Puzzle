@@ -548,4 +548,4 @@ namespace TMPro
             m_isCalculateSizeRequired = false;
         }
     }
-}
+}      

@@ -1056,4 +1056,4 @@ namespace TMPro
             Hide();
         }
     }
-}
+}             

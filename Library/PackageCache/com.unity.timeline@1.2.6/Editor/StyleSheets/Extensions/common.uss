@@ -1151,3 +1151,4 @@
     width: 14px;
     background-image: resource("Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/Timeline-Marker-Warning-Overlay.png");
 }
+   

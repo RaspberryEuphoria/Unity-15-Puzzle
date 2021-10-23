@@ -278,3 +278,4 @@ namespace VSCodeEditor
         public void Initialize(string editorInstallationPath) { }
     }
 }
+ 
