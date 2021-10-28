@@ -64,7 +64,8 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
                 float3 normalDir : TEXCOORD4;
                 float3 tangentDir : TEXCOORD5;
                 float3 bitangentDir : TEXCOORD6;
-                LIGHTING_COORDS(7,8)
+                // LIGHTING_COORDS(7,8)
+                UNITY_LIGHTING_COORDS(7,8)
                 UNITY_FOG_COORDS(9)
                 #if defined(LIGHTMAP_ON) || defined(UNITY_SHOULD_SAMPLE_SH)
                     float4 ambientOrLightmapUV : TEXCOORD10;
@@ -261,7 +262,8 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
                 float3 normalDir : TEXCOORD4;
                 float3 tangentDir : TEXCOORD5;
                 float3 bitangentDir : TEXCOORD6;
-                LIGHTING_COORDS(7,8)
+                // LIGHTING_COORDS(7,8)
+                UNITY_LIGHTING_COORDS(7,8)
                 UNITY_FOG_COORDS(9)
             };
             VertexOutput vert (VertexInput v) {
