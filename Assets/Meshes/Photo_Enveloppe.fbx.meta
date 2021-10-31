@@ -6,6 +6,12 @@ ModelImporter:
   - first:
       74: 1827226128182048838
     second: Photo_Enveloppe
+  - first:
+      74: -998496362607748373
+    second: Take 001
+  - first:
+      74: -3773806384736129561
+    second: Photo_Enveloppe_close
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -39,7 +45,7 @@ ModelImporter:
       takeName: Take 001
       internalID: 0
       firstFrame: 0
-      lastFrame: 74
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
