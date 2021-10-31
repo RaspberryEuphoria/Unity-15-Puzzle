@@ -32,7 +32,7 @@ public class LoadBoard : MonoBehaviour
 
     private int[,] matrix;
 
-    void Start()
+    void Awake()
     {
         gameState = GameObject.Find("GameState").GetComponent<GameState>();
 
