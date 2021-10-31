@@ -9,16 +9,19 @@ using UnityEngine.UI;
 public class LoadBoard : MonoBehaviour
 {
     [Header("Board configuration")]
-    [Tooltip("The base tile object used to fill the board.")]
-    private GameObject tileObject;
     [Tooltip("A texture to split on the tiles.")]
     public Texture2D tileTexture;
     [Tooltip("A number of rows and columns for the board grid.")]
     public int rowAndColCount = 3;
+    [Tooltip("The photo object texture will be synced with the board texture.")]
+    public GameObject photoObject;
 
     [Header("Debug options")]
     [Tooltip("Disable tiles shuffle")]
     public bool _DEBUG_DISABLE_SHUFFLE = false;
+
+    [Tooltip("The base tile object used to fill the board.")]
+    private GameObject tileObject;
 
     private List<Tile> tiles = new List<Tile>();
     private Tile hiddenTile;
@@ -80,6 +83,8 @@ public class LoadBoard : MonoBehaviour
 
     IEnumerator PrepareBoard()
     {
+        yield return true;
+
         ExtensionFilter[] extensions = new[] { new ExtensionFilter("Image Files", "jpg", "png") };
 
         string[] paths = StandaloneFileBrowser.OpenFilePanel("Title", "", extensions, false);
@@ -92,6 +97,7 @@ public class LoadBoard : MonoBehaviour
             yield return request.SendWebRequest();
             tileTexture = DownloadHandlerTexture.GetContent(request);
         }
+
 
         tileObject = GameObject.Find("Tile");
 
@@ -173,7 +179,7 @@ public class LoadBoard : MonoBehaviour
         hiddenTile.Hide();
         tiles.ForEach(tile => tile.SetIsSwappable(tile.IsSwappable(tiles, hiddenTile, rowAndColCount, matrix)));
 
-        this.GetComponent<Animation>().Play();
+        GetComponent<Animation>().Play();
     }
 
     public void HandleTileClick(GameObject gameObject)
@@ -338,6 +344,8 @@ public class LoadBoard : MonoBehaviour
                 splitedTexture.Add(texture);
             }
         }
+
+        photoObject.GetComponent<Renderer>().material.SetTexture("_MainTex", tileTexture);
 
         return splitedTexture;
     }
