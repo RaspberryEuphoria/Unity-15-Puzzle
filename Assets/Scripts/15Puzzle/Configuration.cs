@@ -4,6 +4,7 @@ public class Configuration : MonoBehaviour
 {
     public Transform cameraTransform;
     public bool allowCustomTexture = false;
+    public Camera gameCamera;
 
     public Texture2D customTexture;
 

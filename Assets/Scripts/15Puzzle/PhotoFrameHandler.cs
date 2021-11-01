@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PhotoFrameHandler : MonoBehaviour
 {
-    public float speed = 1.0f;
+    public float animationSpeed = 1.0f;
     public Transform targetMarker;
+    public GameObject photoObject;
 
     private bool isActive = false;
     private float startTime;
@@ -18,18 +19,20 @@ public class PhotoFrameHandler : MonoBehaviour
 
     private Animator animator;
 
-    private void Start()
+    void Start()
     {
         animator = GetComponent<Animator>();
         startMarkerPosition = transform.position;
         startMarkerRotation = transform.rotation;
+
+        SetPhotoTexture();
     }
 
     void Update()
     {
         if (isLerping)
         {
-            float distCovered = (Time.time - startTime) * speed;
+            float distCovered = (Time.time - startTime) * animationSpeed;
 
             float fractionOfPositionJourney = distCovered / positionTravelLength;
             float fractionOfRotationJourney = distCovered / rotationTravelLength;
@@ -53,9 +56,10 @@ public class PhotoFrameHandler : MonoBehaviour
         }
     }
 
-    void OnMouseEnter()
+    public void SetPhotoTexture()
     {
-        Debug.Log("OnMouseEnter");
+        Configuration configuration = gameObject.GetComponentInParent<Configuration>();
+        photoObject.GetComponent<Renderer>().material.SetTexture("_MainTex", configuration.customTexture);
     }
 
     void OnMouseDown()

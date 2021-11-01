@@ -38,7 +38,7 @@ public class CameraHandler : MonoBehaviour
             }
         }
     }
-    public void StartTravelling(Transform newTarget, System.Action newCallback)
+    public void StartTravelling(Transform newTarget, System.Action newCallback = null)
     {
         target = newTarget;
         callback = newCallback;

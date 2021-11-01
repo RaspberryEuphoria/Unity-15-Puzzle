@@ -13,8 +13,8 @@ public class LoadBoard : MonoBehaviour
     public GameObject boardObject;
     [Tooltip("Base tile object used to fill the board. Should not be changed lightly!")]
     public GameObject tileObject;
-    [Tooltip("Photo object to show a preview of the completed puzzle.")]
-    public GameObject photoObject;
+    [Tooltip("Base enveloppe object used to show a preview of the completed puzzle. Should not be changed lightly!")]
+    public GameObject photoEnveloppeObject;
     [Tooltip("Default board texture. Will be replaced by user custom texture if there is one.")]
     public Texture2D tileTexture;
 
@@ -31,61 +31,18 @@ public class LoadBoard : MonoBehaviour
 
     private int[,] matrix;
 
+    private Configuration configuration;
+
     void Start()
     {
         gameState = GameObject.Find("GameState").GetComponent<GameState>();
-        Configuration configuration = gameObject.GetComponentInParent<Configuration>();
+        configuration = gameObject.GetComponentInParent<Configuration>();
 
-        if (configuration.customTexture != null)
-        {
-            tileTexture = configuration.customTexture;
-        }
+        tileTexture = configuration.customTexture;
 
         SetupBoard();
     }
-
-    void Update()
-    {
-        if (!gameState.isReady)
-        {
-            return;
-        }
-
-        if (gameState.isWin)
-        {
-            if (!Mathf.Approximately(1.0f, hiddenTile.GameObject.transform.position.y / tileObject.transform.position.y))
-            {
-                float step = 15f * Time.deltaTime;
-
-                hiddenTile.GameObject.transform.position = Vector3.MoveTowards(
-                    hiddenTile.GameObject.transform.position,
-                    new Vector3(hiddenTile.GameObject.transform.position.x, tileObject.transform.position.y, hiddenTile.GameObject.transform.position.z),
-                    step
-                );
-            }
-
-            return;
-        }
-
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        if (Physics.Raycast(ray, out RaycastHit raycastHit, 100f))
-        {
-            if (raycastHit.transform != null)
-            {
-                GameObject gameObject = raycastHit.transform.gameObject;
-
-                if (gameObject.CompareTag("Tile"))
-                {
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        HandleTileClick(gameObject);
-                    }
-                }
-            }
-        }
-    }
-
+      
     void SetupBoard()
     {
         if (rowAndColCount == 4)
@@ -160,47 +117,15 @@ public class LoadBoard : MonoBehaviour
         gameState.SetIsReady();
         hiddenTile.Hide();
         tiles.ForEach(tile => tile.SetIsSwappable(tile.IsSwappable(tiles, hiddenTile, rowAndColCount, matrix)));
-
-        boardObject.GetComponent<Animation>().Play();
-    }
-
-    public void HandleTileClick(GameObject gameObject)
-    {
-        Tile tile = tiles.Find(t => t.GameObject.GetInstanceID() == gameObject.GetInstanceID());
-
-        if ( tile == null)
-        {
-            return;
-        }
-
-        if (tile.IsSwappable(tiles, hiddenTile, rowAndColCount, matrix))
-        {
-            SwapTiles(tile, hiddenTile);
-
-            gameState.IncrementGameMoves();
-
-            if (IsBoardSolved())
-            {
-                gameState.SetVictory();
-                hiddenTile.GameObject.SetActive(true);
-            }
-        }
+        
+        configuration.gameCamera.GetComponent<CameraHandler>().StartTravelling(configuration.cameraTransform, () => {
+            boardObject.GetComponent<BoardHandler>().Init(rowAndColCount, tiles, hiddenTile, tileObject, matrix);
+        });
     }
 
     public Vector3 GetTileNewPosition(float x, float y)
     {
         return new Vector3(-x * tileScale + scaleFactor, tileObject.transform.position.y, y * tileScale - scaleFactor);
-        // return new Vector3(-y * tileScale + scaleFactor, tileObject.transform.position.y, x * tileScale - scaleFactor);
-    }
-
-    public void SwapTiles(Tile firstTile, Tile secondTile)
-    {
-        firstTile.SwapTile(secondTile);
-
-        tiles[firstTile.Index] = firstTile;
-        tiles[hiddenTile.Index] = hiddenTile;
-
-        tiles.ForEach(tile => tile.SetIsSwappable(tile.IsSwappable(tiles, hiddenTile, rowAndColCount, matrix)));
     }
 
     /**
@@ -238,44 +163,6 @@ public class LoadBoard : MonoBehaviour
             return inversions % 2 != 0; // @Todo verify if this works :)
         }
 
-    }
-
-    public bool IsBoardSolved()
-    {
-        int lastTileIndex = tiles[tiles.Count - 1].TrueIndex;
-
-        for (int i = 0; i < tiles.Count; i++)
-        {
-            if (tiles[0].TrueIndex != 0)
-            {
-                return false;
-            }
-
-            if (lastTileIndex != tiles.Count - 1)
-            {
-                return false;
-            }
-
-            int leftTileIndex = tiles[i].TrueIndex;
-
-            // If we weren't kicked at this point, it's a win!
-            if (leftTileIndex == lastTileIndex)
-            {
-                return true;
-            }
-
-            int rightTileIndex = tiles[i + 1].TrueIndex;
-
-            if (leftTileIndex != rightTileIndex - 1)
-            {
-                Debug.Log("Fail 3");
-                return false;
-            }
-        }
-
-        // We should not reach this part, but just in case...
-        Debug.Log("Fail 4");
-        return false;
     }
 
     public static List<Tile> Shuffle(List<Tile> _tiles)
@@ -327,8 +214,6 @@ public class LoadBoard : MonoBehaviour
             }
         }
 
-        photoObject.GetComponent<Renderer>().material.SetTexture("_MainTex", tileTexture);
-
         return splitedTexture;
     }
 
@@ -358,5 +243,8 @@ public class LoadBoard : MonoBehaviour
 
             tileTexture = texture;
         }
+
+        configuration.SetCustomTexture(tileTexture);
+        photoEnveloppeObject.GetComponent<PhotoFrameHandler>().SetPhotoTexture();
     }
 }

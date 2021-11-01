@@ -10618,6 +10618,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5339855279202169140}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &898944972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898944967}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6082c43a02c738c4da02af5b2a479615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &902743653
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11848,8 +11860,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 318650693}
-  allowCustomTexture: 0
-  customTexture: {fileID: 0}
+  allowCustomTexture: 1
+  gameCamera: {fileID: 1823456852}
+  customTexture: {fileID: 2800000, guid: bdfb3989c73b5ea4880643b113335917, type: 3}
 --- !u!114 &1040176853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11865,9 +11878,9 @@ MonoBehaviour:
   rowAndColCount: 3
   boardObject: {fileID: 898944967}
   tileObject: {fileID: 1512549177}
-  photoObject: {fileID: 1814384788}
+  photoEnveloppeObject: {fileID: 1453178535}
   tileTexture: {fileID: 2800000, guid: bdfb3989c73b5ea4880643b113335917, type: 3}
-  _DEBUG_DISABLE_SHUFFLE: 0
+  _DEBUG_DISABLE_SHUFFLE: 1
 --- !u!1001 &1041207977
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16880,8 +16893,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8208bc926dc813b45a3e756455b86040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  animationSpeed: 1
   targetMarker: {fileID: 330123659}
+  photoObject: {fileID: 1814384788}
 --- !u!95 &1453178537
 Animator:
   serializedVersion: 3
@@ -22887,7 +22901,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   games:
   - {fileID: 1040176850}
-  gameCamera: {fileID: 1823456852}
 --- !u!1001 &2134195740
 PrefabInstance:
   m_ObjectHideFlags: 0

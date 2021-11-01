@@ -4,7 +4,6 @@ using UnityEngine;
 public class LaunchGame : MonoBehaviour
 {
     public List<GameObject> games;
-    public Camera gameCamera;
 
     private GameState gameState;
 
@@ -41,13 +40,6 @@ public class LaunchGame : MonoBehaviour
 
     void ActivateGame(GameObject game, Configuration gameConfiguration)
     {
-        game.SetActive(true);
-
-        Transform newGameCameraTransform = gameConfiguration.cameraTransform;
-        CameraHandler cameraHandler = gameCamera.GetComponent<CameraHandler>();
-
-        cameraHandler.StartTravelling(newGameCameraTransform, () => {
-            game.GetComponent<LoadBoard>().enabled = true;
-        });
+        game.GetComponent<LoadBoard>().enabled = true;
     }
 }
