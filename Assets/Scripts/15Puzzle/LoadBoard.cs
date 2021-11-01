@@ -1,27 +1,26 @@
-﻿using SFB;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class LoadBoard : MonoBehaviour
 {
     [Header("Board configuration")]
-    [Tooltip("A texture to split on the tiles.")]
-    public Texture2D tileTexture;
-    [Tooltip("A number of rows and columns for the board grid.")]
+    [Tooltip("Number of rows and columns for the board grid.")]
     public int rowAndColCount = 3;
-    [Tooltip("The photo object texture will be synced with the board texture.")]
+    [Tooltip("Base board object. Should not be changed lightly!")]
+    public GameObject boardObject;
+    [Tooltip("Base tile object used to fill the board. Should not be changed lightly!")]
+    public GameObject tileObject;
+    [Tooltip("Photo object to show a preview of the completed puzzle.")]
     public GameObject photoObject;
+    [Tooltip("Default board texture. Will be replaced by user custom texture if there is one.")]
+    public Texture2D tileTexture;
 
     [Header("Debug options")]
     [Tooltip("Disable tiles shuffle")]
     public bool _DEBUG_DISABLE_SHUFFLE = false;
-
-    [Tooltip("The base tile object used to fill the board.")]
-    private GameObject tileObject;
 
     private List<Tile> tiles = new List<Tile>();
     private Tile hiddenTile;
@@ -32,11 +31,17 @@ public class LoadBoard : MonoBehaviour
 
     private int[,] matrix;
 
-    void Awake()
+    void Start()
     {
         gameState = GameObject.Find("GameState").GetComponent<GameState>();
+        Configuration configuration = gameObject.GetComponentInParent<Configuration>();
 
-        StartCoroutine(PrepareBoard());
+        if (configuration.customTexture != null)
+        {
+            tileTexture = configuration.customTexture;
+        }
+
+        SetupBoard();
     }
 
     void Update()
@@ -79,29 +84,6 @@ public class LoadBoard : MonoBehaviour
                 }
             }
         }
-    }
-
-    IEnumerator PrepareBoard()
-    {
-        yield return true;
-
-        ExtensionFilter[] extensions = new[] { new ExtensionFilter("Image Files", "jpg", "png") };
-
-        string[] paths = StandaloneFileBrowser.OpenFilePanel("Title", "", extensions, false);
-
-        if (paths.Length > 0)
-        {
-            string url = new System.Uri(paths[0]).AbsoluteUri;
-
-            UnityWebRequest request = UnityWebRequestTexture.GetTexture(url);
-            yield return request.SendWebRequest();
-            tileTexture = DownloadHandlerTexture.GetContent(request);
-        }
-
-
-        tileObject = GameObject.Find("Tile");
-
-        SetupBoard();
     }
 
     void SetupBoard()
@@ -179,7 +161,7 @@ public class LoadBoard : MonoBehaviour
         hiddenTile.Hide();
         tiles.ForEach(tile => tile.SetIsSwappable(tile.IsSwappable(tiles, hiddenTile, rowAndColCount, matrix)));
 
-        GetComponent<Animation>().Play();
+        boardObject.GetComponent<Animation>().Play();
     }
 
     public void HandleTileClick(GameObject gameObject)

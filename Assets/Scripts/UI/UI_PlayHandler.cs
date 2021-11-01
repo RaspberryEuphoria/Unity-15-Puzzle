@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveCameraOnClick : MonoBehaviour
+public class UI_PlayHandler : MonoBehaviour
 {
     public bool isHover;
-    private GameState gameState;
+    public LaunchGame launcher;
 
     void Start()
     {
-        gameState = GameObject.Find("GameState").GetComponent<GameState>();
     }
 
     void Update()
@@ -25,7 +24,7 @@ public class MoveCameraOnClick : MonoBehaviour
     void OnMouseDown()
     {
         isHover = false;
-        gameState.StartNewGame("15Puzzle");
+        launcher.StartNewGame("15Puzzle");
     }
 
     void OnMouseExit()
