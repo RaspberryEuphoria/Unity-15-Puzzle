@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class UI_PlayHandler : MonoBehaviour
 {
-    public LaunchGame launcher;
+    public Camera gameCamera;
+    public Transform gameSelectionTransform;
 
     void OnMouseDown()
     {
-        launcher.StartNewGame("15Puzzle");
+        this.gameCamera.GetComponent<CameraHandler>().StartTravelling(gameSelectionTransform);
     }
 }

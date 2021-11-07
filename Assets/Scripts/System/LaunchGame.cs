@@ -5,11 +5,8 @@ public class LaunchGame : MonoBehaviour
 {
     public List<GameObject> games;
 
-    private GameState gameState;
-
     void Start()
     {
-        gameState = GameObject.Find("GameState").GetComponent<GameState>();
     }
 
     void Update()
@@ -20,7 +17,6 @@ public class LaunchGame : MonoBehaviour
     public void StartNewGame(string gameName)
     {
         GameObject newGame = games.Find(g => g.name == gameName);
-
         Configuration newGameConfiguration = newGame.GetComponent<Configuration>();
 
         if (newGameConfiguration.allowCustomTexture)
@@ -28,18 +24,18 @@ public class LaunchGame : MonoBehaviour
             StartCoroutine(LoadCustomTexture.GetCustomTexture(customTexture => { 
                 newGameConfiguration.SetCustomTexture(customTexture);
 
-                ActivateGame(newGame, newGameConfiguration);
+                ActivateGame(newGameConfiguration);
             }));
 
             return;
         }
 
 
-        ActivateGame(newGame, newGameConfiguration);
+        ActivateGame(newGameConfiguration);
     }
 
-    void ActivateGame(GameObject game, Configuration gameConfiguration)
+    void ActivateGame(Configuration gameConfiguration)
     {
-        game.GetComponent<LoadBoard>().enabled = true;
+        gameConfiguration.loader.enabled = true;
     }
 }

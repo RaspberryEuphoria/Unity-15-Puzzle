@@ -24,32 +24,6 @@ public class JigsawPuzzleProperties : ScriptableObject
     public int colCount;
     public int piecesCount;
 
-    void Simulation()
-    {
-        for (int ratio = 2; ratio < 5; ratio++)
-        {
-            int baseN = 100;
-
-            int x = (int) Math.Round(Mathf.Sqrt(baseN / ratio));
-            int y = x * ratio;
-
-            int n = x * y;
-
-            Debug.Log("Pour y = " + ratio + "x, et xy =~ " + baseN);
-            Debug.Log("x = " + x);
-            Debug.Log("y = " + y);
-            Debug.Log("Le nombre le plus proche de " + baseN + " = " + n);
-        }
-    }
-
-    /*
-    Est-ce qu'un matheux pourrait m'aider à résoudre un problème, s'il vous plaît ?
-    J'ai un nombre **x** dont je ne connais pas valeur
-    Un nombre **y** qui est égal à **x*2**
-    x*y s'approche le plus possible de 100 (ça peut-être un peu au-dessus ou un peu en-dessous)
-    Comment trouver x ?
-    */
-
     public void Init(float ratio, Difficulty difficulty, Orientation orientation)
     {
         int piecesCount = 75;
@@ -94,38 +68,47 @@ public class JigsawPuzzleProperties : ScriptableObject
     }
 }
 
-public class PrepareJigsawPuzzle : MonoBehaviour
+public class LoadJigsawBoard : MonoBehaviour
 {
-    public Texture2D basePuzzleTexture;
+    [Tooltip("Base board object. Should not be changed lightly!")]
+    public GameObject boardObject;
     public Difficulty puzzleDifficulty = Difficulty.Easy;
+    public int scaleFactor;
 
-    public JigsawPuzzleProperties puzzleProperties;
+    private JigsawPuzzleProperties puzzleProperties;
 
-    public Texture2D puzzleTexture;
+    private Texture2D puzzleTexture;
     private List<HandleJigsawaPiece> puzzleShapes = new List<HandleJigsawaPiece>();
     private HandleJigsawaPiece[,] matrix;
 
-    public Orientation puzzleOrientation;
-    public float puzzleRatio;
-    public int scaleFactor;
+    private Orientation puzzleOrientation;
+    private float puzzleRatio;
+    private Configuration configuration;
 
     // Start is called before the first frame update
     void Start()
     {
-        PrepareTexture();
+        configuration = gameObject.GetComponentInParent<Configuration>();
 
+        PrepareTexture();
+        SetupPieces();
+        StartGame();
+    }
+
+    private void StartGame()
+    {
+        this.configuration.gameCamera.GetComponent<CameraHandler>().StartTravelling(this.configuration.cameraTransform);
+    }
+
+    private void SetupPieces()
+    {
         this.puzzleProperties = ScriptableObject.CreateInstance<JigsawPuzzleProperties>();
         this.puzzleProperties.Init(this.puzzleRatio, this.puzzleDifficulty, this.puzzleOrientation);
-
-        Debug.Log(this.puzzleProperties.rowCount);
-        Debug.Log(this.puzzleProperties.colCount);
-        Debug.Log(this.puzzleProperties.piecesCount);
-
         this.matrix = new HandleJigsawaPiece[this.puzzleProperties.colCount, this.puzzleProperties.rowCount];
 
         List<Transform> variants = new List<Transform>();
 
-        foreach (Transform child in transform)
+        foreach (Transform child in boardObject.transform)
         {
             HandleJigsawaPiece handler = child.gameObject.GetComponent<HandleJigsawaPiece>();
             puzzleShapes.Add(handler);
@@ -145,7 +128,7 @@ public class PrepareJigsawPuzzle : MonoBehaviour
 
         foreach (Transform child in variants)
         {
-            child.SetParent(transform);
+            child.SetParent(boardObject.transform);
         }
 
         int index = 0;
@@ -162,7 +145,7 @@ public class PrepareJigsawPuzzle : MonoBehaviour
                 piece.name = "Piece#" + index + " :: " + pieceShape.name;
 
                 piece.GetComponent<Renderer>().material.SetTexture("_MainTex", GetTexturePart(piece, x, y, index));
-                piece.transform.SetParent(transform);
+                piece.transform.SetParent(boardObject.transform);
                 piece.transform.localPosition = new Vector3(x * -this.scaleFactor, y * -this.scaleFactor, 0);
 
                 index++;
@@ -393,16 +376,6 @@ public class PrepareJigsawPuzzle : MonoBehaviour
         return texture;
     }
 
-    private float percentToValue(float percentage, float total)
-    {
-        return (percentage * total / 100);
-    }
-
-    private float valueToPercent(float value, float total)
-    {
-        return (value * 100 / total);
-    }
-
     private float GetRatio(float leftValue, float rightValue)
     {
         float ratio = Mathf.Max(leftValue, rightValue) / Mathf.Min(leftValue, rightValue);
@@ -432,6 +405,7 @@ public class PrepareJigsawPuzzle : MonoBehaviour
 
     private void PrepareTexture()
     {
+        Texture2D basePuzzleTexture = this.configuration.customTexture;
         int x = basePuzzleTexture.width & ~1; // round to nearest even int (down)
         int y = basePuzzleTexture.height & ~1;
 
@@ -476,10 +450,5 @@ public class PrepareJigsawPuzzle : MonoBehaviour
         }
 
         this.puzzleRatio = ratio;
-    }
-
-    private void ComputePuzzleProperties()
-    {
-         this.puzzleProperties.Init(this.puzzleRatio, this.puzzleDifficulty, this.puzzleOrientation);
     }
 }
