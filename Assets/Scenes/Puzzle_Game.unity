@@ -2465,7 +2465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 229504576}
   m_Layer: 0
-  m_Name: Puzzle_Game
+  m_Name: Baskets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2478,15 +2478,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 229504575}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2071361154}
   - {fileID: 651096586}
   - {fileID: 1394107631}
-  m_Father: {fileID: 419318500}
-  m_RootOrder: 4
+  m_Father: {fileID: 302986692}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &237312997
 GameObject:
@@ -3674,6 +3674,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 297876933}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &302986691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 302986692}
+  m_Layer: 0
+  m_Name: JigsawPuzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &302986692
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302986691}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 736848747}
+  - {fileID: 229504576}
+  m_Father: {fileID: 419318500}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &308871865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9391,6 +9423,85 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 378647476}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &386831496
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 302986692}
+    m_Modifications:
+    - target: {fileID: 1526602420096859728, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_Name
+      value: Jigsaw_pieces
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709079008193735, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: scaleFactor
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709079008193735, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: basePuzzleTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 807c4d9bc4c2a4841a9420a8a4e86941, type: 3}
+    - target: {fileID: 2189950620485526762, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189950620485526762, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 121.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189950620485526762, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189950620485526762, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -15.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189950620485526762, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189950620485526762, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189950620485526762, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189950620485526762, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189950620485526762, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189950620485526762, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189950620485526762, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eff654059fc2f034ea6ee37fd0a7e2dc, type: 3}
 --- !u!4 &402616384 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2325672680034440713, guid: be0bac28d9a470e4b8e560e8d908b839,
@@ -9698,7 +9809,7 @@ Transform:
   - {fileID: 2038585180}
   - {fileID: 543450653017177392}
   - {fileID: 543450653075085791}
-  - {fileID: 229504576}
+  - {fileID: 302986692}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17985,6 +18096,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: ab86fa70ec3e1ec4080f46ded59b6ca0,
     type: 3}
   m_PrefabInstance: {fileID: 722008926}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &736848747 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2189950620485526762, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 386831496}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &742813741
 PrefabInstance:
