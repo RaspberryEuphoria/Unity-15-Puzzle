@@ -72,6 +72,7 @@ public class LoadJigsawBoard : MonoBehaviour
 {
     [Tooltip("Base board object. Should not be changed lightly!")]
     public GameObject boardObject;
+    public GameObject support;
     public Difficulty puzzleDifficulty = Difficulty.Easy;
     public int scaleFactor;
 
@@ -98,6 +99,9 @@ public class LoadJigsawBoard : MonoBehaviour
     private void StartGame()
     {
         this.configuration.gameCamera.GetComponent<CameraHandler>().StartTravelling(this.configuration.cameraTransform);
+        this.support.transform.localScale = new Vector3((1f * this.puzzleProperties.colCount) / 2f, 1, (1f * this.puzzleProperties.rowCount) / 2f);
+
+
     }
 
     private void SetupPieces()
