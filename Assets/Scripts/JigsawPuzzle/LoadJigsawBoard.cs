@@ -79,8 +79,8 @@ public class LoadJigsawBoard : MonoBehaviour
     private JigsawPuzzleProperties puzzleProperties;
 
     private Texture2D puzzleTexture;
-    private List<HandleJigsawaPiece> puzzleShapes = new List<HandleJigsawaPiece>();
-    private HandleJigsawaPiece[,] matrix;
+    private List<JigsawPiece> puzzleShapes = new List<JigsawPiece>();
+    private JigsawPiece[,] matrix;
 
     private Orientation puzzleOrientation;
     private float puzzleRatio;
@@ -100,27 +100,25 @@ public class LoadJigsawBoard : MonoBehaviour
     {
         this.configuration.gameCamera.GetComponent<CameraHandler>().StartTravelling(this.configuration.cameraTransform);
         this.support.transform.localScale = new Vector3((1f * this.puzzleProperties.colCount) / 2f, 1, (1f * this.puzzleProperties.rowCount) / 2f);
-
-
     }
 
     private void SetupPieces()
     {
         this.puzzleProperties = ScriptableObject.CreateInstance<JigsawPuzzleProperties>();
         this.puzzleProperties.Init(this.puzzleRatio, this.puzzleDifficulty, this.puzzleOrientation);
-        this.matrix = new HandleJigsawaPiece[this.puzzleProperties.colCount, this.puzzleProperties.rowCount];
+        this.matrix = new JigsawPiece[this.puzzleProperties.colCount, this.puzzleProperties.rowCount];
 
         List<Transform> variants = new List<Transform>();
 
         foreach (Transform child in boardObject.transform)
         {
-            HandleJigsawaPiece handler = child.gameObject.GetComponent<HandleJigsawaPiece>();
-            puzzleShapes.Add(handler);
+            JigsawPiece jigsawpiece = child.gameObject.GetComponent<JigsawPiece>();
+            puzzleShapes.Add(jigsawpiece);
 
             for (int i = 1; i <= 3; i++)
             {
                 GameObject variant = Instantiate(child.gameObject, child.transform.position, child.transform.rotation);
-                HandleJigsawaPiece variantHandler = variant.GetComponent<HandleJigsawaPiece>();
+                JigsawPiece variantHandler = variant.GetComponent<JigsawPiece>();
 
                 puzzleShapes.Add(variantHandler);
                 variants.Add(variant.transform);
@@ -141,16 +139,16 @@ public class LoadJigsawBoard : MonoBehaviour
             for (int y = 0; y < this.puzzleProperties.rowCount; y++)
             {
                 GameObject pieceShape = GetRandomShape(x, y);
-                GameObject piece = Instantiate(pieceShape, pieceShape.transform.position, pieceShape.transform.rotation);
+                GameObject jigsawpiece = Instantiate(pieceShape, pieceShape.transform.position, pieceShape.transform.rotation);
 
-                matrix[x, y] = piece.GetComponent<HandleJigsawaPiece>();
+                matrix[x, y] = jigsawpiece.GetComponent<JigsawPiece>();
 
-                piece.SetActive(true);
-                piece.name = "Piece#" + index + " :: " + pieceShape.name;
+                jigsawpiece.SetActive(true);
+                jigsawpiece.name = "Piece#" + index + " :: " + pieceShape.name;
 
-                piece.GetComponent<Renderer>().material.SetTexture("_MainTex", GetTexturePart(piece, x, y, index));
-                piece.transform.SetParent(boardObject.transform);
-                piece.transform.localPosition = new Vector3(x * -this.scaleFactor, y * -this.scaleFactor, 0);
+                jigsawpiece.GetComponent<Renderer>().material.SetTexture("_MainTex", GetTexturePart(jigsawpiece, x, y, index));
+                jigsawpiece.transform.SetParent(boardObject.transform);
+                jigsawpiece.transform.localPosition = new Vector3(x * -this.scaleFactor, y * -this.scaleFactor, 0);
 
                 index++;
             }
@@ -163,41 +161,41 @@ public class LoadJigsawBoard : MonoBehaviour
 
         if (y == this.puzzleProperties.rowCount - 1) // last row
         {
-            Edge topShapeBottomEdge = matrix[x, y - 1].bottomEdge;
+            Edge topShapeBottomEdge = matrix[x, y - 1].edges.Bottom;
 
             if (x == 0) // first piece of row
             {
                 return puzzleShapes.Find(shape =>
-                    shape.topEdge != Edge.Straight
-                    && shape.topEdge != topShapeBottomEdge
-                    && shape.leftEdge == Edge.Straight
-                    && shape.rightEdge != Edge.Straight
-                    && shape.bottomEdge == Edge.Straight
+                    shape.edges.Top != Edge.Straight
+                    && shape.edges.Top != topShapeBottomEdge
+                    && shape.edges.Left == Edge.Straight
+                    && shape.edges.Right != Edge.Straight
+                    && shape.edges.Bottom == Edge.Straight
                 ).gameObject;
             }
 
-            Edge leftShapeRightEdge = matrix[x - 1, y].rightEdge;
+            Edge leftShapeRightEdge = matrix[x - 1, y].edges.Right;
 
             if (x == this.puzzleProperties.colCount - 1) // last piece of row
             {
                 return puzzleShapes.Find(shape =>
-                    shape.topEdge != Edge.Straight
-                    && shape.topEdge != topShapeBottomEdge
-                    && shape.leftEdge != Edge.Straight
-                    && shape.leftEdge != leftShapeRightEdge
-                    && shape.rightEdge == Edge.Straight
-                    && shape.bottomEdge == Edge.Straight
+                    shape.edges.Top != Edge.Straight
+                    && shape.edges.Top != topShapeBottomEdge
+                    && shape.edges.Left != Edge.Straight
+                    && shape.edges.Left != leftShapeRightEdge
+                    && shape.edges.Right == Edge.Straight
+                    && shape.edges.Bottom == Edge.Straight
                 ).gameObject;
             }
             else // middle piece
             {
                 return puzzleShapes.Find(shape =>
-                    shape.topEdge != Edge.Straight
-                    && shape.topEdge != topShapeBottomEdge
-                    && shape.leftEdge != Edge.Straight
-                    && shape.leftEdge != leftShapeRightEdge
-                    && shape.rightEdge != Edge.Straight
-                    && shape.bottomEdge == Edge.Straight
+                    shape.edges.Top != Edge.Straight
+                    && shape.edges.Top != topShapeBottomEdge
+                    && shape.edges.Left != Edge.Straight
+                    && shape.edges.Left != leftShapeRightEdge
+                    && shape.edges.Right != Edge.Straight
+                    && shape.edges.Bottom == Edge.Straight
                 ).gameObject;
             }
         }
@@ -208,73 +206,73 @@ public class LoadJigsawBoard : MonoBehaviour
                 if (x == 0) // first piece of row
                 {
                     return puzzleShapes.Find(shape =>
-                        shape.topEdge == Edge.Straight
-                        && shape.leftEdge == Edge.Straight
-                        && shape.rightEdge != Edge.Straight
-                        && shape.bottomEdge != Edge.Straight
+                        shape.edges.Top == Edge.Straight
+                        && shape.edges.Left == Edge.Straight
+                        && shape.edges.Right != Edge.Straight
+                        && shape.edges.Bottom != Edge.Straight
                     ).gameObject;
                 }
 
-                Edge leftShapeRightEdge = matrix[x - 1, y].rightEdge;
+                Edge leftShapeRightEdge = matrix[x - 1, y].edges.Right;
 
                 if (x == this.puzzleProperties.colCount - 1) // last piece of row
                 {
                     return puzzleShapes.Find(shape =>
-                        shape.topEdge == Edge.Straight
-                        && shape.leftEdge != Edge.Straight
-                        && shape.leftEdge != leftShapeRightEdge
-                        && shape.rightEdge == Edge.Straight
-                        && shape.bottomEdge != Edge.Straight
+                        shape.edges.Top == Edge.Straight
+                        && shape.edges.Left != Edge.Straight
+                        && shape.edges.Left != leftShapeRightEdge
+                        && shape.edges.Right == Edge.Straight
+                        && shape.edges.Bottom != Edge.Straight
                     ).gameObject;
                 }
                 else // middle pieces
                 {
                     return puzzleShapes.Find(shape =>
-                        shape.topEdge == Edge.Straight
-                        && shape.leftEdge != Edge.Straight
-                        && shape.leftEdge != leftShapeRightEdge
-                        && shape.rightEdge != Edge.Straight
-                        && shape.bottomEdge != Edge.Straight
+                        shape.edges.Top == Edge.Straight
+                        && shape.edges.Left != Edge.Straight
+                        && shape.edges.Left != leftShapeRightEdge
+                        && shape.edges.Right != Edge.Straight
+                        && shape.edges.Bottom != Edge.Straight
                     ).gameObject;
                 }
             }
             else // middle rows
             {
-                Edge topShapeBottomEdge = matrix[x, y - 1].bottomEdge;
+                Edge topShapeBottomEdge = matrix[x, y - 1].edges.Bottom;
 
                 if (x == 0) // first piece of row
                 {
                     return puzzleShapes.Find(shape =>
-                        shape.topEdge != Edge.Straight
-                        && shape.topEdge != topShapeBottomEdge
-                        && shape.leftEdge == Edge.Straight
-                        && shape.rightEdge != Edge.Straight
-                        && shape.bottomEdge != Edge.Straight
+                        shape.edges.Top != Edge.Straight
+                        && shape.edges.Top != topShapeBottomEdge
+                        && shape.edges.Left == Edge.Straight
+                        && shape.edges.Right != Edge.Straight
+                        && shape.edges.Bottom != Edge.Straight
                     ).gameObject;
                 }
 
-                Edge leftShapeRightEdge = matrix[x - 1, y].rightEdge;
+                Edge leftShapeRightEdge = matrix[x - 1, y].edges.Right;
 
                 if (x == this.puzzleProperties.colCount - 1) // last piece of row
                 {
                     return puzzleShapes.Find(shape =>
-                        shape.topEdge != Edge.Straight
-                        && shape.topEdge != topShapeBottomEdge
-                        && shape.leftEdge != Edge.Straight
-                        && shape.leftEdge != leftShapeRightEdge
-                        && shape.rightEdge == Edge.Straight
-                        && shape.bottomEdge != Edge.Straight
+                        shape.edges.Top != Edge.Straight
+                        && shape.edges.Top != topShapeBottomEdge
+                        && shape.edges.Left != Edge.Straight
+                        && shape.edges.Left != leftShapeRightEdge
+                        && shape.edges.Right == Edge.Straight
+                        && shape.edges.Bottom != Edge.Straight
                     ).gameObject;
                 }
                 else // middle pieces
                 {
                     return puzzleShapes.Find(shape =>
-                        shape.topEdge != Edge.Straight
-                        && shape.topEdge != topShapeBottomEdge
-                        && shape.leftEdge != Edge.Straight
-                        && shape.leftEdge != leftShapeRightEdge
-                        && shape.rightEdge != Edge.Straight
-                        && shape.bottomEdge != Edge.Straight
+                        shape.edges.Top != Edge.Straight
+                        && shape.edges.Top != topShapeBottomEdge
+                        && shape.edges.Left != Edge.Straight
+                        && shape.edges.Left != leftShapeRightEdge
+                        && shape.edges.Right != Edge.Straight
+                        && shape.edges.Bottom != Edge.Straight
                     ).gameObject;
                 }
             }
@@ -306,24 +304,24 @@ public class LoadJigsawBoard : MonoBehaviour
         int edgeWidth = edgePercent * widthWithEdges / 100;
         int edgeHeight = edgePercent * heightWithEdges / 100;
 
-        HandleJigsawaPiece jigsawPiece = piece.GetComponent<HandleJigsawaPiece>();
+        JigsawPiece jigsawPiece = piece.GetComponent<JigsawPiece>();
 
-        if (jigsawPiece.leftEdge == Edge.Hook)
+        if (jigsawPiece.edges.Left == Edge.Hook)
         {
             widthWithEdges += edgeWidth;
         }
 
-        if (jigsawPiece.rightEdge == Edge.Hook)
+        if (jigsawPiece.edges.Right == Edge.Hook)
         {
             widthWithEdges += edgeWidth;
         }
 
-        if (jigsawPiece.topEdge == Edge.Hook)
+        if (jigsawPiece.edges.Top == Edge.Hook)
         {
             heightWithEdges += edgeHeight;
         }
 
-        if (jigsawPiece.bottomEdge == Edge.Hook)
+        if (jigsawPiece.edges.Bottom == Edge.Hook)
         {
             heightWithEdges += edgeHeight;
         }
@@ -333,20 +331,15 @@ public class LoadJigsawBoard : MonoBehaviour
         int bottomLeftPixelX = x * baseWidth;
         int bottomLeftPixelY = puzzleTexture.height - (baseHeight * (y + 1));
 
-        if (jigsawPiece.leftEdge == Edge.Hook)
+        if (jigsawPiece.edges.Left == Edge.Hook)
         {
             bottomLeftPixelX -= edgeWidth;
         }
 
-        if (jigsawPiece.bottomEdge == Edge.Hook)
+        if (jigsawPiece.edges.Bottom == Edge.Hook)
         {
             bottomLeftPixelY -= edgeHeight;
         }
-
-        jigsawPiece.widthWithEdges = widthWithEdges;
-        jigsawPiece.heightWithEdges = heightWithEdges;
-        jigsawPiece.bottomLeftPixelX = bottomLeftPixelX;
-        jigsawPiece.bottomLeftPixelY = bottomLeftPixelY;
 
         Color[] pixels = puzzleTexture.GetPixels(bottomLeftPixelX, bottomLeftPixelY, textureSize.x, textureSize.y);
         Texture2D texture = new Texture2D(textureSize.x, textureSize.y, puzzleTexture.format, false);
@@ -354,8 +347,6 @@ public class LoadJigsawBoard : MonoBehaviour
         texture.SetPixels(pixels);
         texture.Apply();
         texture.wrapMode = TextureWrapMode.Clamp;
-
-        jigsawPiece.SetTexture(texture);
 
         if (piece.transform.localRotation.eulerAngles.y != 0)
         {
@@ -392,11 +383,11 @@ public class LoadJigsawBoard : MonoBehaviour
         return (int) (value * ratio);
     }
 
-    private void Shuffle(List<HandleJigsawaPiece> pieces)
+    private void Shuffle(List<JigsawPiece> pieces)
     {
         for (int i = 0; i < pieces.Count; i++)
         {
-            HandleJigsawaPiece temp = pieces[i];
+            JigsawPiece temp = pieces[i];
             int randomIndex = UnityEngine.Random.Range(i, pieces.Count);
 
             pieces[i] = pieces[randomIndex];
