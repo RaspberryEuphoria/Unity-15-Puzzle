@@ -303,6 +303,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3637440}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3928859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2185780878023044392, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 386831496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &3928864
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3928859}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6545417235555405753, guid: 288b96789580a16489fe2fe85791711d, type: 3}
 --- !u!1 &6793708
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,15 +369,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 0
-  bottomEdge: 1
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 131
-  heightWithEdges: 131
-  bottomLeftPixelX: 262
-  bottomLeftPixelY: 6
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &6793711
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1161,15 +1177,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 1
-  bottomEdge: 0
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 131
-  heightWithEdges: 131
-  bottomLeftPixelX: 1048
-  bottomLeftPixelY: 268
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &66040855
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1263,15 +1275,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 0
-  bottomEdge: 2
-  leftEdge: 1
-  texture: {fileID: 0}
-  widthWithEdges: 131
-  heightWithEdges: 170
-  bottomLeftPixelX: 0
-  bottomLeftPixelY: 98
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &68518131
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1365,15 +1373,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 2
-  bottomEdge: 0
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 170
-  bottomLeftPixelX: 262
-  bottomLeftPixelY: 530
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &82706309
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1467,15 +1471,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 0
-  bottomEdge: 2
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 170
-  bottomLeftPixelX: 878
-  bottomLeftPixelY: 622
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &87891401
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1849,15 +1849,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 2
-  bottomEdge: 2
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 209
-  heightWithEdges: 209
-  bottomLeftPixelX: 92
-  bottomLeftPixelY: 491
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &114618796
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3014,15 +3010,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 2
-  bottomEdge: 2
-  leftEdge: 1
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 209
-  bottomLeftPixelX: 0
-  bottomLeftPixelY: 753
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &181002002
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3364,15 +3356,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 2
-  bottomEdge: 1
-  leftEdge: 1
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 131
-  bottomLeftPixelX: 0
-  bottomLeftPixelY: 6
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &195027447
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4226,15 +4214,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 0
-  bottomEdge: 0
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 131
-  heightWithEdges: 131
-  bottomLeftPixelX: 786
-  bottomLeftPixelY: 268
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &245612398
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5260,15 +5244,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 2
-  bottomEdge: 1
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 170
-  bottomLeftPixelX: 131
-  bottomLeftPixelY: 6
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &301448551
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5445,7 +5425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boardObject: {fileID: 270126142}
   support: {fileID: 1991877166}
-  puzzleDifficulty: 2
+  puzzleDifficulty: 0
   scaleFactor: 5
 --- !u!114 &302986694
 MonoBehaviour:
@@ -6056,6 +6036,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330601846}
   m_Mesh: {fileID: -4215462351936764934, guid: 288b96789580a16489fe2fe85791711d, type: 3}
+--- !u!1 &331609706 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 124945125122065625, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 386831496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &331609711
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331609706}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8389674341895031723, guid: 288b96789580a16489fe2fe85791711d, type: 3}
 --- !u!1001 &336008917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11502,6 +11502,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 302986692}
     m_Modifications:
+    - target: {fileID: 124945125122065625, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 159255183455073320, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113684741006298480, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1526602420096859728, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
         type: 3}
       propertyPath: m_Name
@@ -11517,6 +11532,237 @@ PrefabInstance:
       propertyPath: basePuzzleTexture
       value: 
       objectReference: {fileID: 2800000, guid: 807c4d9bc4c2a4841a9420a8a4e86941, type: 3}
+    - target: {fileID: 1868709080287331096, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Top
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331096, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Left
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331096, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Right
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331097, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Top
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331097, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Right
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331098, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Top
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331098, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Right
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331098, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Bottom
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331099, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Top
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331099, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Left
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331099, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Bottom
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331101, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Top
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331101, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Left
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331101, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Right
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331101, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Bottom
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331104, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Top
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331104, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Left
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331105, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Top
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331105, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Left
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331105, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Right
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331105, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Bottom
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331106, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Top
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331106, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Left
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331106, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Right
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331107, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Top
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331107, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Left
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331107, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Bottom
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331108, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Top
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331109, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Top
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331109, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Left
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331109, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Right
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331109, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Bottom
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331110, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Top
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331110, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Left
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331111, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Top
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331111, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Bottom
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331116, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Top
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331116, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Right
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331117, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges
+      value: 
+      objectReference: {fileID: 11400000, guid: 94dd4a44d6bdce348b8cc487ff0bff09,
+        type: 2}
+    - target: {fileID: 1868709080287331117, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Top
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331118, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Top
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331118, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Right
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331118, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Bottom
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331119, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Top
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868709080287331119, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: edges.Bottom
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185780878023044392, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2189950620485526762, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
         type: 3}
       propertyPath: m_RootOrder
@@ -11530,7 +11776,7 @@ PrefabInstance:
     - target: {fileID: 2189950620485526762, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -61.7
       objectReference: {fileID: 0}
     - target: {fileID: 2189950620485526762, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
         type: 3}
@@ -11540,7 +11786,7 @@ PrefabInstance:
     - target: {fileID: 2189950620485526762, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 136
       objectReference: {fileID: 0}
     - target: {fileID: 2189950620485526762, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
         type: 3}
@@ -11582,7 +11828,67 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2477070241249559269, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2608554576232967503, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2636958724609042863, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3038768016001735834, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3104768743337409461, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575229093787791500, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4934057259196096355, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499189735495654795, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5705709491572945996, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162688310716207409, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260422396485068273, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7228720926098071813, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106394841068440394, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -11947,15 +12253,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 2
-  bottomEdge: 2
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 209
-  heightWithEdges: 209
-  bottomLeftPixelX: 878
-  bottomLeftPixelY: 98
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &425513681
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12082,6 +12384,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 427067353}
   m_Mesh: {fileID: 3485630557251732076, guid: 288b96789580a16489fe2fe85791711d, type: 3}
+--- !u!1 &430283147 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2636958724609042863, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 386831496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &430283152
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430283147}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6131856283813908278, guid: 288b96789580a16489fe2fe85791711d, type: 3}
 --- !u!1 &430429042
 GameObject:
   m_ObjectHideFlags: 0
@@ -12588,15 +12910,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 1
-  bottomEdge: 2
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 131
-  heightWithEdges: 209
-  bottomLeftPixelX: 1048
-  bottomLeftPixelY: 360
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &459695087
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13422,15 +13740,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 2
-  bottomEdge: 0
-  leftEdge: 1
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 170
-  bottomLeftPixelX: 0
-  bottomLeftPixelY: 399
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &531978256
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13939,6 +14253,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7512559845087060732}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &565444873 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3038768016001735834, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 386831496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &565444878
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565444873}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3717669671300715274, guid: 288b96789580a16489fe2fe85791711d, type: 3}
 --- !u!1001 &567814253
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14626,15 +14960,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 1
-  rightEdge: 0
-  bottomEdge: 2
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 170
-  bottomLeftPixelX: 485
-  bottomLeftPixelY: 884
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &601371338
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20288,6 +20618,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 642032248}
   m_Mesh: {fileID: 2844586165431848315, guid: 288b96789580a16489fe2fe85791711d, type: 3}
+--- !u!1 &644432734 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1113684741006298480, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 386831496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &644432739
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644432734}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1905557748752594112, guid: 288b96789580a16489fe2fe85791711d, type: 3}
 --- !u!1 &649253432
 GameObject:
   m_ObjectHideFlags: 0
@@ -20334,15 +20684,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 1
-  rightEdge: 2
-  bottomEdge: 0
-  leftEdge: 1
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 131
-  bottomLeftPixelX: 0
-  bottomLeftPixelY: 923
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &649253435
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20566,15 +20912,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 0
-  bottomEdge: 0
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 170
-  bottomLeftPixelX: 747
-  bottomLeftPixelY: 530
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &671516868
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21042,15 +21384,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 0
-  bottomEdge: 0
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 131
-  heightWithEdges: 131
-  bottomLeftPixelX: 131
-  bottomLeftPixelY: 399
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &688954606
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21144,15 +21482,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 2
-  bottomEdge: 2
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 170
-  bottomLeftPixelX: 393
-  bottomLeftPixelY: 491
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &691858162
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21663,15 +21997,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 1
-  rightEdge: 0
-  bottomEdge: 0
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 131
-  bottomLeftPixelX: 747
-  bottomLeftPixelY: 923
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &708562258
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22303,15 +22633,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 2
-  bottomEdge: 2
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 209
-  heightWithEdges: 209
-  bottomLeftPixelX: 223
-  bottomLeftPixelY: 98
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &766253162
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22574,15 +22900,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 0
-  bottomEdge: 0
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 131
-  heightWithEdges: 131
-  bottomLeftPixelX: 393
-  bottomLeftPixelY: 399
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &769131949
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22766,15 +23088,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 0
-  bottomEdge: 2
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 131
-  heightWithEdges: 209
-  bottomLeftPixelX: 393
-  bottomLeftPixelY: 98
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &770109209
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22868,15 +23186,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 1
-  rightEdge: 0
-  bottomEdge: 0
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 131
-  bottomLeftPixelX: 616
-  bottomLeftPixelY: 923
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &770122169
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23063,15 +23377,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 1
-  bottomEdge: 0
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 131
-  heightWithEdges: 170
-  bottomLeftPixelX: 1048
-  bottomLeftPixelY: 137
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &776286865
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23231,15 +23541,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 2
-  bottomEdge: 0
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 170
-  bottomLeftPixelX: 655
-  bottomLeftPixelY: 137
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &783903846
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23380,6 +23686,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787055298}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &787705215 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5499189735495654795, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 386831496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &787705220
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787705215}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7320363926830011320, guid: 288b96789580a16489fe2fe85791711d, type: 3}
 --- !u!1 &805353423
 GameObject:
   m_ObjectHideFlags: 0
@@ -23841,15 +24167,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 0
-  bottomEdge: 0
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 131
-  heightWithEdges: 131
-  bottomLeftPixelX: 655
-  bottomLeftPixelY: 530
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &842153268
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23897,6 +24219,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 842153265}
   m_Mesh: {fileID: -5080383336707595079, guid: 288b96789580a16489fe2fe85791711d, type: 3}
+--- !u!1 &842621646 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7228720926098071813, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 386831496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &842621651
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842621646}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6679424096186622740, guid: 288b96789580a16489fe2fe85791711d, type: 3}
 --- !u!1001 &843423367
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24033,15 +24375,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 1
-  rightEdge: 2
-  bottomEdge: 0
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 209
-  heightWithEdges: 131
-  bottomLeftPixelX: 878
-  bottomLeftPixelY: 923
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &845495098
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24628,15 +24966,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 2
-  bottomEdge: 2
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 209
-  heightWithEdges: 209
-  bottomLeftPixelX: 616
-  bottomLeftPixelY: 622
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &881099577
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24820,15 +25154,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 0
-  bottomEdge: 1
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 170
-  bottomLeftPixelX: 616
-  bottomLeftPixelY: 6
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &881644935
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24922,15 +25252,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 2
-  bottomEdge: 0
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 209
-  heightWithEdges: 170
-  bottomLeftPixelX: 354
-  bottomLeftPixelY: 268
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &883378611
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25147,6 +25473,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 887347705}
   m_Mesh: {fileID: 8378317620945217726, guid: 288b96789580a16489fe2fe85791711d, type: 3}
+--- !u!1 &894667991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2608554576232967503, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 386831496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &894667996
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894667991}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7448711278239552366, guid: 288b96789580a16489fe2fe85791711d, type: 3}
 --- !u!1 &896891770
 GameObject:
   m_ObjectHideFlags: 0
@@ -25729,15 +26075,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 0
-  bottomEdge: 1
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 131
-  bottomLeftPixelX: 354
-  bottomLeftPixelY: 6
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &909390370
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25863,15 +26205,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 2
-  bottomEdge: 2
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 209
-  heightWithEdges: 209
-  bottomLeftPixelX: 223
-  bottomLeftPixelY: 360
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &918576785
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26290,15 +26628,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 1
-  rightEdge: 0
-  bottomEdge: 0
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 131
-  heightWithEdges: 131
-  bottomLeftPixelX: 131
-  bottomLeftPixelY: 923
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &931554220
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26392,15 +26726,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 1
-  bottomEdge: 2
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 209
-  bottomLeftPixelX: 1009
-  bottomLeftPixelY: 622
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &935340664
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27091,15 +27421,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 0
-  bottomEdge: 2
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 131
-  heightWithEdges: 209
-  bottomLeftPixelX: 786
-  bottomLeftPixelY: 98
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &965202254
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27193,15 +27519,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 0
-  bottomEdge: 0
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 131
-  heightWithEdges: 131
-  bottomLeftPixelX: 393
-  bottomLeftPixelY: 792
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &969028157
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27556,15 +27878,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 0
-  bottomEdge: 2
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 170
-  bottomLeftPixelX: 878
-  bottomLeftPixelY: 491
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &978169839
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28267,15 +28585,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 2
-  bottomEdge: 2
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 209
-  heightWithEdges: 209
-  bottomLeftPixelX: 223
-  bottomLeftPixelY: 753
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1042837492
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29691,15 +30005,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 1
-  rightEdge: 1
-  bottomEdge: 0
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 131
-  heightWithEdges: 131
-  bottomLeftPixelX: 1048
-  bottomLeftPixelY: 923
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1120894685
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29873,15 +30183,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 0
-  bottomEdge: 0
-  leftEdge: 1
-  texture: {fileID: 0}
-  widthWithEdges: 131
-  heightWithEdges: 170
-  bottomLeftPixelX: 0
-  bottomLeftPixelY: 530
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1132126585
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30314,15 +30620,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 1
-  rightEdge: 0
-  bottomEdge: 0
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 131
-  bottomLeftPixelX: 223
-  bottomLeftPixelY: 923
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1161423374
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35176,15 +35478,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 2
-  bottomEdge: 2
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 209
-  heightWithEdges: 209
-  bottomLeftPixelX: 92
-  bottomLeftPixelY: 229
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1176337336
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35909,15 +36207,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 0
-  bottomEdge: 0
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 131
-  heightWithEdges: 170
-  bottomLeftPixelX: 524
-  bottomLeftPixelY: 268
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1235049157
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35965,6 +36259,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235049154}
   m_Mesh: {fileID: -5004923422627476491, guid: 288b96789580a16489fe2fe85791711d, type: 3}
+--- !u!1 &1241475632 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5705709491572945996, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 386831496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1241475637
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241475632}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3791897525952024919, guid: 288b96789580a16489fe2fe85791711d, type: 3}
 --- !u!1001 &1247684059
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36282,15 +36596,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 0
-  bottomEdge: 2
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 170
-  bottomLeftPixelX: 485
-  bottomLeftPixelY: 753
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1272006810
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36724,6 +37034,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2974497870739248506}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1291883691 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2266193645531358686, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 386831496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1291883696
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291883691}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5168014005177994167, guid: 288b96789580a16489fe2fe85791711d, type: 3}
 --- !u!1 &1297392400
 GameObject:
   m_ObjectHideFlags: 0
@@ -37415,15 +37745,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 1
-  bottomEdge: 0
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 131
-  heightWithEdges: 170
-  bottomLeftPixelX: 1048
-  bottomLeftPixelY: 792
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1317860549
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -37607,15 +37933,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 2
-  bottomEdge: 0
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 209
-  heightWithEdges: 131
-  bottomLeftPixelX: 616
-  bottomLeftPixelY: 268
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1322134670
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -37877,15 +38199,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 2
-  bottomEdge: 0
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 209
-  heightWithEdges: 131
-  bottomLeftPixelX: 485
-  bottomLeftPixelY: 399
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1339134912
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38511,7 +38829,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1382709109}
   m_LocalRotation: {x: 0.094024986, y: -0.72397083, z: 0.67312574, w: 0.11801442}
-  m_LocalPosition: {x: 4.1, y: 187.4, z: 702.4}
+  m_LocalPosition: {x: 4.1, y: 39, z: 702.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1328265472}
@@ -38563,15 +38881,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 1
-  bottomEdge: 0
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 131
-  bottomLeftPixelX: 1009
-  bottomLeftPixelY: 530
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1388098243
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -39155,15 +39469,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 0
-  bottomEdge: 0
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 131
-  heightWithEdges: 131
-  bottomLeftPixelX: 524
-  bottomLeftPixelY: 661
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1411243091
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -40171,15 +40481,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 2
-  bottomEdge: 0
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 209
-  heightWithEdges: 170
-  bottomLeftPixelX: 878
-  bottomLeftPixelY: 268
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1465413774
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -40273,15 +40579,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 1
-  bottomEdge: 1
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 170
-  bottomLeftPixelX: 1009
-  bottomLeftPixelY: 6
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1471890834
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -40550,15 +40852,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 0
-  bottomEdge: 2
-  leftEdge: 1
-  texture: {fileID: 0}
-  widthWithEdges: 131
-  heightWithEdges: 209
-  bottomLeftPixelX: 0
-  bottomLeftPixelY: 229
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1478257126
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -41184,15 +41482,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 0
-  bottomEdge: 0
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 131
-  heightWithEdges: 131
-  bottomLeftPixelX: 262
-  bottomLeftPixelY: 268
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1503733743
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -41330,6 +41624,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1506205469}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1507323643 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4934057259196096355, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 386831496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1507323648
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507323643}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5662854340455887957, guid: 288b96789580a16489fe2fe85791711d, type: 3}
 --- !u!1 &1512549177 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 399440077987933373, guid: d2587edcb8bf69c4ebcdb5a7a52c0c3b,
@@ -41722,15 +42036,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 2
-  bottomEdge: 2
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 209
-  bottomLeftPixelX: 524
-  bottomLeftPixelY: 491
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1533428008
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -41824,15 +42134,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 0
-  bottomEdge: 0
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 131
-  heightWithEdges: 131
-  bottomLeftPixelX: 262
-  bottomLeftPixelY: 661
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1533807840
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -42349,15 +42655,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 0
-  bottomEdge: 0
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 131
-  bottomLeftPixelX: 92
-  bottomLeftPixelY: 137
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1561246657
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -42604,6 +42906,46 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1572214950}
   m_Mesh: {fileID: 3485630557251732076, guid: 288b96789580a16489fe2fe85791711d, type: 3}
+--- !u!1 &1582121034 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6260422396485068273, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 386831496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1582121039
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582121034}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1975300902383788216, guid: 288b96789580a16489fe2fe85791711d, type: 3}
+--- !u!1 &1582578049 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 159255183455073320, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 386831496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1582578054
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582578049}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2559168991500072265, guid: 288b96789580a16489fe2fe85791711d, type: 3}
 --- !u!1001 &1595231833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42740,15 +43082,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 2
-  bottomEdge: 0
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 209
-  heightWithEdges: 170
-  bottomLeftPixelX: 616
-  bottomLeftPixelY: 792
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1599344183
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -43202,15 +43540,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 2
-  bottomEdge: 0
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 131
-  bottomLeftPixelX: 917
-  bottomLeftPixelY: 399
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1635731561
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -43689,15 +44023,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 2
-  bottomEdge: 2
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 209
-  heightWithEdges: 209
-  bottomLeftPixelX: 747
-  bottomLeftPixelY: 360
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1675407689
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -44061,15 +44391,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 2
-  bottomEdge: 0
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 131
-  bottomLeftPixelX: 131
-  bottomLeftPixelY: 661
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1697904218
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -44117,6 +44443,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1697904215}
   m_Mesh: {fileID: -5004923422627476491, guid: 288b96789580a16489fe2fe85791711d, type: 3}
+--- !u!1 &1709201840 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6162688310716207409, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 386831496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1709201845
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709201840}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7730586453494823925, guid: 288b96789580a16489fe2fe85791711d, type: 3}
 --- !u!1 &1715910700
 GameObject:
   m_ObjectHideFlags: 0
@@ -44163,15 +44509,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 2
-  bottomEdge: 0
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 209
-  heightWithEdges: 170
-  bottomLeftPixelX: 485
-  bottomLeftPixelY: 137
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1715910703
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -44434,15 +44776,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 0
-  bottomEdge: 1
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 131
-  heightWithEdges: 131
-  bottomLeftPixelX: 917
-  bottomLeftPixelY: 6
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1727732480
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -44797,15 +45135,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 2
-  bottomEdge: 2
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 209
-  heightWithEdges: 209
-  bottomLeftPixelX: 354
-  bottomLeftPixelY: 622
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1748359097
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -44853,6 +45187,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748359094}
   m_Mesh: {fileID: -7730586453494823925, guid: 288b96789580a16489fe2fe85791711d, type: 3}
+--- !u!1 &1753246805 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8106394841068440394, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 386831496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1753246810
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753246805}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5004923422627476491, guid: 288b96789580a16489fe2fe85791711d, type: 3}
 --- !u!1001 &1760843831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45650,15 +46004,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 2
-  bottomEdge: 1
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 209
-  heightWithEdges: 131
-  bottomLeftPixelX: 747
-  bottomLeftPixelY: 6
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1793708925
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -45752,15 +46102,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 1
-  rightEdge: 0
-  bottomEdge: 2
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 170
-  bottomLeftPixelX: 354
-  bottomLeftPixelY: 884
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1804302885
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -46220,15 +46566,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 2
-  bottomEdge: 0
-  leftEdge: 1
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 131
-  bottomLeftPixelX: 0
-  bottomLeftPixelY: 661
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1823314316
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -46570,15 +46912,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 0
-  bottomEdge: 2
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 131
-  heightWithEdges: 209
-  bottomLeftPixelX: 655
-  bottomLeftPixelY: 360
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1837843783
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -47032,15 +47370,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 2
-  bottomEdge: 2
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 209
-  heightWithEdges: 209
-  bottomLeftPixelX: 878
-  bottomLeftPixelY: 753
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1848648436
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -47731,15 +48065,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 0
-  bottomEdge: 2
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 131
-  heightWithEdges: 209
-  bottomLeftPixelX: 131
-  bottomLeftPixelY: 753
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1870949246
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -47967,6 +48297,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1878140402}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1886268552 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4575229093787791500, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 386831496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1886268557
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886268552}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7711928895824044944, guid: 288b96789580a16489fe2fe85791711d, type: 3}
 --- !u!4 &1889467938 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7632661277126342973, guid: 5d98585cb5096704ca601a422d80d706,
@@ -48134,15 +48484,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 0
-  bottomEdge: 1
-  leftEdge: 2
-  texture: {fileID: 0}
-  widthWithEdges: 170
-  heightWithEdges: 170
-  bottomLeftPixelX: 485
-  bottomLeftPixelY: 6
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &1920164211
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -48190,6 +48536,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1920164208}
   m_Mesh: {fileID: 5191645983587223508, guid: 288b96789580a16489fe2fe85791711d, type: 3}
+--- !u!1 &1944721907 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3104768743337409461, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 386831496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1944721912
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944721907}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5080383336707595079, guid: 288b96789580a16489fe2fe85791711d, type: 3}
 --- !u!1 &1957263505
 GameObject:
   m_ObjectHideFlags: 0
@@ -49056,15 +49422,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 0
-  rightEdge: 0
-  bottomEdge: 0
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 131
-  heightWithEdges: 131
-  bottomLeftPixelX: 786
-  bottomLeftPixelY: 661
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &2005070291
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -49730,6 +50092,26 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!1 &2074824414 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2477070241249559269, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 386831496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2074824419
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074824414}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5191645983587223508, guid: 288b96789580a16489fe2fe85791711d, type: 3}
 --- !u!1001 &2080819876
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50398,15 +50780,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8971ab9efe7368f4e86a3980c78525bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topEdge: 2
-  rightEdge: 0
-  bottomEdge: 2
-  leftEdge: 0
-  texture: {fileID: 0}
-  widthWithEdges: 131
-  heightWithEdges: 209
-  bottomLeftPixelX: 786
-  bottomLeftPixelY: 753
+  edges:
+    Top: 0
+    Right: 0
+    Bottom: 0
+    Left: 0
 --- !u!23 &2132464686
 MeshRenderer:
   m_ObjectHideFlags: 0

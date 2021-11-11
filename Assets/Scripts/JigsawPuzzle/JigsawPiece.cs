@@ -15,41 +15,41 @@ public class Edges
     public Edge Bottom;
     public Edge Left;
 
-    public void Init(Edge top, Edge right, Edge bottom, Edge left)
+    public void Init(Edge Top, Edge Right, Edge Bottom, Edge Left)
     {
-        this.Top = top;
-        this.Right = right;
-        this.Bottom = bottom;
-        this.Left = left;
+        this.Top = Top;
+        this.Right = Right;
+        this.Bottom = Bottom;
+        this.Left = Left;
     }
 
     public void Rotate(float angle)
     {
-        Edge previousTopEdge = this.Top;
-        Edge previousRightEdge = this.Right;
-        Edge previousBottomEdge = this.Bottom;
-        Edge previousLeftEdge = this.Left;
+        Edge previousTopEdge = Top;
+        Edge previousRightEdge = Right;
+        Edge previousBottomEdge = Bottom;
+        Edge previousLeftEdge = Left;
 
         if (angle == 90)
         {
-            this.Top = previousLeftEdge;
-            this.Right = previousTopEdge;
-            this.Bottom = previousRightEdge;
-            this.Left = previousBottomEdge;
+            Top = previousLeftEdge;
+            Right = previousTopEdge;
+            Bottom = previousRightEdge;
+            Left = previousBottomEdge;
         }
         else if (angle == 90 * 2)
         {
-            this.Top = previousBottomEdge;
-            this.Right = previousLeftEdge;
-            this.Bottom = previousTopEdge;
-            this.Left = previousRightEdge;
+            Top = previousBottomEdge;
+            Right = previousLeftEdge;
+            Bottom = previousTopEdge;
+            Left = previousRightEdge;
         }
         else if (angle == 90 * 3)
         {
-            this.Top = previousRightEdge;
-            this.Right = previousBottomEdge;
-            this.Bottom = previousLeftEdge;
-            this.Left = previousTopEdge;
+            Top = previousRightEdge;
+            Right = previousBottomEdge;
+            Bottom = previousLeftEdge;
+            Left = previousTopEdge;
         }
     }
 }
@@ -58,11 +58,54 @@ public class JigsawPiece : MonoBehaviour
 {
     public Edges edges;
 
-    public void RotatePiece(int rotation)
-    {
-        float angle = rotation * 90;
+    private bool isSelected = false;
+    private Vector3 offset;
 
-        this.transform.Rotate(0, 0, angle);
+
+    private void FixedUpdate()
+    {
+        if (isSelected)
+        {
+            this.transform.position = this.GetHitPoint() + offset;
+
+            if (Input.GetAxis("Mouse ScrollWheel") != 0)
+            {
+                this.RotatePiece(Input.GetAxis("Mouse ScrollWheel") < 0 ? -90 : 90);
+            }
+        }
+    }
+    
+    private void OnMouseDown()
+    {
+        this.isSelected = !this.isSelected;
+        this.offset = transform.position - GetHitPoint();
+    }
+
+    /**
+     * This method rotate the piece and its edges definition.
+     * It is used to create new pieces from existing ones, and
+     * should not be used directly by the player.
+     * To do a "game rotation", use RotatePiece instead!
+     */
+    public void RotateModel(int rotation)
+    {
+        int angle = rotation * 90;
+
+        this.RotatePiece(angle);
         this.edges.Rotate(angle);
+    }
+
+    public void RotatePiece(int angle)
+    {
+        this.transform.Rotate(0, 0, angle);
+    }
+
+    Vector3 GetHitPoint()
+    {
+        Plane plane = new Plane(Camera.main.transform.forward, transform.position);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        plane.Raycast(ray, out float dist);
+
+        return ray.GetPoint(dist);
     }
 }

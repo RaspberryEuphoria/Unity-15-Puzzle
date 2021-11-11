@@ -124,7 +124,7 @@ public class LoadJigsawBoard : MonoBehaviour
                 variants.Add(variant.transform);
 
                 variant.name = child.gameObject.name + "_" + i * 90 + "°";
-                variantHandler.RotatePiece(i);
+                variantHandler.RotateModel(i);
             }
         }
 
@@ -151,6 +151,14 @@ public class LoadJigsawBoard : MonoBehaviour
                 jigsawpiece.transform.localPosition = new Vector3(x * -this.scaleFactor, y * -this.scaleFactor, 0);
 
                 index++;
+            }
+        }
+
+        foreach (Transform child in boardObject.transform)
+        {
+            if (!child.gameObject.activeSelf)
+            {
+                Destroy(child.gameObject);
             }
         }
     }
