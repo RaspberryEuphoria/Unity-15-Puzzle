@@ -86,24 +86,32 @@ public class LoadJigsawBoard : MonoBehaviour
     private float puzzleRatio;
     private Configuration configuration;
 
+    private Vector3 initialRotation;
+
     // Start is called before the first frame update
     void Start()
     {
+        Vector3 initialRotation = this.transform.eulerAngles;
         configuration = gameObject.GetComponentInParent<Configuration>();
 
         PrepareTexture();
         SetupPieces();
-        StartGame();
+
+        StartGame(initialRotation);
     }
 
-    private void StartGame()
+    private void StartGame(Vector3 rotation)
     {
         this.configuration.gameCamera.GetComponent<CameraHandler>().StartTravelling(this.configuration.cameraTransform);
         this.support.transform.localScale = new Vector3((1f * this.puzzleProperties.colCount) / 2f, 1, (1f * this.puzzleProperties.rowCount) / 2f);
+        this.transform.rotation = Quaternion.Euler(rotation);
     }
 
     private void SetupPieces()
     {
+        // Reset rotation to prevent issues while cuting pieces texture
+        this.transform.rotation = Quaternion.Euler(0, 0, 0);
+
         this.puzzleProperties = ScriptableObject.CreateInstance<JigsawPuzzleProperties>();
         this.puzzleProperties.Init(this.puzzleRatio, this.puzzleDifficulty, this.puzzleOrientation);
         this.matrix = new JigsawPiece[this.puzzleProperties.colCount, this.puzzleProperties.rowCount];
