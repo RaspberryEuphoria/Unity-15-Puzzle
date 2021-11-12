@@ -23,10 +23,11 @@ public class JigsawPuzzleProperties : ScriptableObject
     public int rowCount;
     public int colCount;
     public int piecesCount;
+    public float scaleModifier;
 
     public void Init(float ratio, Difficulty difficulty, Orientation orientation)
     {
-        int piecesCount = 75;
+        int defaultPiecesCount = 75;
         int modifier = 1;
 
         switch (difficulty)
@@ -45,7 +46,7 @@ public class JigsawPuzzleProperties : ScriptableObject
                 break;
         }
 
-        piecesCount *= modifier;
+        int piecesCount = defaultPiecesCount * modifier;
 
         switch (orientation)
         {
@@ -65,6 +66,32 @@ public class JigsawPuzzleProperties : ScriptableObject
 
 
         this.piecesCount = this.colCount * this.rowCount;
+        this.scaleModifier = -((modifier - 1f) / 100f);
+    }
+}
+
+[System.Serializable]
+public class DifficultyCamera
+{
+    public Transform easyTransform;
+    public Transform mediumTransform;
+    public Transform hardTransform;
+    public Transform veryHardTransform;
+
+    public Transform GetTransform(Difficulty difficulty)
+    {
+        switch (difficulty)
+        {
+            case Difficulty.Easy:
+                return easyTransform;
+            case Difficulty.Medium: 
+                return mediumTransform;
+            case Difficulty.Hard:
+                return hardTransform;
+            case Difficulty.VeryHard:
+            default:
+                return veryHardTransform;
+        }
     }
 }
 
@@ -75,6 +102,7 @@ public class LoadJigsawBoard : MonoBehaviour
     public GameObject support;
     public Difficulty puzzleDifficulty = Difficulty.Easy;
     public int scaleFactor;
+    public DifficultyCamera difficultyCamera;
 
     private JigsawPuzzleProperties puzzleProperties;
 
@@ -86,9 +114,6 @@ public class LoadJigsawBoard : MonoBehaviour
     private float puzzleRatio;
     private Configuration configuration;
 
-    private Vector3 initialRotation;
-
-    // Start is called before the first frame update
     void Start()
     {
         Vector3 initialRotation = this.transform.eulerAngles;
@@ -102,9 +127,10 @@ public class LoadJigsawBoard : MonoBehaviour
 
     private void StartGame(Vector3 rotation)
     {
-        this.configuration.gameCamera.GetComponent<CameraHandler>().StartTravelling(this.configuration.cameraTransform);
-        this.support.transform.localScale = new Vector3((1f * this.puzzleProperties.colCount) / 2f, 1, (1f * this.puzzleProperties.rowCount) / 2f);
         this.transform.rotation = Quaternion.Euler(rotation);
+        this.transform.localScale = new Vector3(1f + puzzleProperties.scaleModifier, 1f, 1f + puzzleProperties.scaleModifier);
+        this.support.transform.localScale = new Vector3((1f * this.puzzleProperties.colCount) / 2f, 1, (1f * this.puzzleProperties.rowCount) / 2f);
+        this.configuration.gameCamera.GetComponent<CameraHandler>().StartTravelling(this.configuration.cameraTransform);
     }
 
     private void SetupPieces()
