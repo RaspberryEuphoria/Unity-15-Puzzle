@@ -60,13 +60,20 @@ public class JigsawPiece : MonoBehaviour
 
     private bool isSelected = false;
     private Vector3 offset;
+    private float defaultPositionY;
+
+    private void Awake()
+    {
+        this.defaultPositionY = this.transform.position.y;
+    }
 
     private void FixedUpdate()
     {
         if (isSelected)
         {
             Vector3 newPosition = this.GetHitPoint() + offset;
-            this.transform.position = newPosition;
+            this.transform.position = new Vector3(newPosition.x, defaultPositionY, newPosition.z);
+            this.transform.localPosition = new Vector3(this.transform.localPosition.x, this.transform.localPosition.y, 1f);
 
             if (Input.GetAxis("Mouse ScrollWheel") != 0)
             {
@@ -82,7 +89,7 @@ public class JigsawPiece : MonoBehaviour
 
         if (!this.isSelected)
         {
-            //this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, defaultPositionZ);
+            this.transform.position = new Vector3(this.transform.position.x, defaultPositionY, this.transform.position.z);
         }
     }
 
