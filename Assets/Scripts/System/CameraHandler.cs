@@ -11,10 +11,11 @@ public class CameraHandler : MonoBehaviour
     private bool isLerping = false;
     private float positionTravelLength;
     private float rotationTravelLength;
+    private CameraMode cameraMode;
 
     private System.Action callback;
 
-    void Update()
+    private void Update()
     {
         if (isLerping)
         {
@@ -37,7 +38,18 @@ public class CameraHandler : MonoBehaviour
                 callback?.Invoke();
             }
         }
+
+        if (cameraMode == CameraMode.Roaming)
+        {
+
+        }
     }
+
+    public void SetCameraMode(CameraMode cameraMode)
+    {
+        this.cameraMode = cameraMode;
+    }
+
     public void StartTravelling(Transform newTarget, System.Action newCallback = null)
     {
         target = newTarget;

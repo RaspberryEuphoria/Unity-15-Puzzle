@@ -75,10 +75,10 @@ public class JigsawPiece : MonoBehaviour
             this.transform.position = new Vector3(newPosition.x, defaultPositionY, newPosition.z);
             this.transform.localPosition = new Vector3(this.transform.localPosition.x, this.transform.localPosition.y, 1f);
 
-            if (Input.GetAxis("Mouse ScrollWheel") != 0)
-            {
-                this.RotatePiece(Input.GetAxis("Mouse ScrollWheel") < 0 ? -90 : 90);
-            }
+            //if (Input.GetAxis("Mouse ScrollWheel") != 0)
+            //{
+                //this.RotatePiece(Input.GetAxis("Mouse ScrollWheel") < 0 ? -90 : 90);
+            //}
         }
     }
     

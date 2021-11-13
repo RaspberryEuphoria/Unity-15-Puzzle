@@ -130,7 +130,12 @@ public class LoadJigsawBoard : MonoBehaviour
         this.transform.rotation = Quaternion.Euler(rotation);
         this.transform.localScale = new Vector3(1f + puzzleProperties.scaleModifier, 1f, 1f + puzzleProperties.scaleModifier);
         this.support.transform.localScale = new Vector3((1f * this.puzzleProperties.colCount) / 2f, 1, (1f * this.puzzleProperties.rowCount) / 2f);
-        this.configuration.gameCamera.GetComponent<CameraHandler>().StartTravelling(this.configuration.cameraTransform);
+
+        CameraHandler camera = configuration.gameCamera.GetComponent<CameraHandler>();
+
+        camera.StartTravelling(this.configuration.cameraTransform, () => {
+            camera.SetCameraMode(this.configuration.cameraMode);
+        });
     }
 
     private void SetupPieces()

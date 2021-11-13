@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Tile
 {
@@ -129,17 +129,19 @@ public class Tile
     }
 }
 
-public class TileHandler : MonoBehaviour
+public class TileHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
     public GameObject tileBorder;
     public float moveSpeed = 35f;
 
     private Tile tile;
     private GameState gameState;
+    private BoardHandler board;
 
     private void Start()
     {
         gameState = GameObject.Find("GameState").GetComponent<GameState>();
+        board = GameObject.Find("15Puzzle_Board").GetComponent<BoardHandler>();
     }
 
     private void Update()
@@ -172,7 +174,7 @@ public class TileHandler : MonoBehaviour
     }
 
 
-    void OnMouseEnter()
+    public void OnPointerEnter(PointerEventData eventData)
     {
         if (gameState.isWin)
         {
@@ -186,9 +188,14 @@ public class TileHandler : MonoBehaviour
     }
 
     // ...and the mesh finally turns white when the mouse moves away.
-    void OnMouseExit()
+    public void OnPointerExit(PointerEventData eventData)
     {
         tileBorder.SetActive(false);
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        board.HandleTileClick(tile);
     }
 
     public void SetTile(Tile value)

@@ -1,14 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class UI_SelectGame : MonoBehaviour
+public class UI_SelectGame : MonoBehaviour, IPointerClickHandler
 {
     public LaunchGame launcher;
     public GameObject gameToLaunch;
 
-    void OnMouseDown()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        this.launcher.StartNewGame(gameToLaunch.name);
+        launcher.StartNewGame(gameToLaunch.name);
     }
 }

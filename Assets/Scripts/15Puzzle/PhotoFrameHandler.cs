@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class PhotoFrameHandler : MonoBehaviour
+public class PhotoFrameHandler : MonoBehaviour, IPointerDownHandler
 {
     public float animationSpeed = 1.0f;
     public Transform targetMarker;
@@ -62,7 +61,7 @@ public class PhotoFrameHandler : MonoBehaviour
         photoObject.GetComponent<Renderer>().material.SetTexture("_MainTex", configuration.customTexture);
     }
 
-    void OnMouseDown()
+    public void OnPointerDown(PointerEventData eventData)
     {
         TogglePhoto(!isActive);
     }

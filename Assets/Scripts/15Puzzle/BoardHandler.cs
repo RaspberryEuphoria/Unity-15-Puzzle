@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.UI;
 
 public class BoardHandler : MonoBehaviour
@@ -39,24 +41,6 @@ public class BoardHandler : MonoBehaviour
 
             return;
         }
-
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        if (Physics.Raycast(ray, out RaycastHit raycastHit, 100f))
-        {
-            if (raycastHit.transform != null)
-            {
-                GameObject gameObject = raycastHit.transform.gameObject;
-
-                if (gameObject.CompareTag("Tile"))
-                {
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        HandleTileClick(gameObject);
-                    }
-                }
-            }
-        }
     }
 
     public void Init(int rowAndColCount, List<Tile> tiles, Tile hiddenTile, GameObject tileObject, int[,] matrix)
@@ -73,15 +57,8 @@ public class BoardHandler : MonoBehaviour
         GetComponent<Animation>().Play();
     }
 
-    void HandleTileClick(GameObject gameObject)
+    public void HandleTileClick(Tile tile)
     {
-        Tile tile = tiles.Find(t => t.GameObject.GetInstanceID() == gameObject.GetInstanceID());
-
-        if (tile == null)
-        {
-            return;
-        }
-
         if (tile.IsSwappable(tiles, hiddenTile, rowAndColCount, matrix))
         {
             SwapTiles(tile, hiddenTile);

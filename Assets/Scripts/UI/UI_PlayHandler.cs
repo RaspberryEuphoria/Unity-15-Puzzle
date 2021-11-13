@@ -1,14 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class UI_PlayHandler : MonoBehaviour
+public class UI_PlayHandler : MonoBehaviour, IPointerClickHandler
 {
     public Camera gameCamera;
     public Transform gameSelectionTransform;
 
-    void OnMouseDown()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        this.gameCamera.GetComponent<CameraHandler>().StartTravelling(gameSelectionTransform);
+        gameCamera.GetComponent<CameraHandler>().StartTravelling(gameSelectionTransform);
     }
 }
