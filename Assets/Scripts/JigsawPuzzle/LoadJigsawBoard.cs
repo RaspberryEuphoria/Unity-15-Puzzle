@@ -12,6 +12,7 @@ public enum Orientation
 
 public enum Difficulty
 {
+    VeryEasy,
     Easy,
     Medium,
     Hard,
@@ -28,10 +29,13 @@ public class JigsawPuzzleProperties : ScriptableObject
     public void Init(float ratio, Difficulty difficulty, Orientation orientation)
     {
         int defaultPiecesCount = 75;
-        int modifier = 1;
+        float modifier = 1;
 
         switch (difficulty)
         {
+            case Difficulty.VeryEasy:
+                modifier = 0.2f;
+                break;
             case Difficulty.Easy:
                 modifier = 1;
                 break;
@@ -46,7 +50,7 @@ public class JigsawPuzzleProperties : ScriptableObject
                 break;
         }
 
-        int piecesCount = defaultPiecesCount * modifier;
+        float piecesCount = defaultPiecesCount * modifier;
 
         switch (orientation)
         {
