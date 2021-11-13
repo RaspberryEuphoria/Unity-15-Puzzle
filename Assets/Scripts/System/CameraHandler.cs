@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CameraHandler : MonoBehaviour
 {
-    public float cameraSpeed = 1.0f;
+    public float travellingSpeed = 1.0f;
+    public float roamingSpeed = 1.0f;
 
     private float startTime;
     private Transform target;
@@ -14,12 +14,18 @@ public class CameraHandler : MonoBehaviour
     private CameraMode cameraMode;
 
     private System.Action callback;
+    private PlayerInput playerInput;
+
+    private void Start()
+    {
+        playerInput = GetComponent<PlayerInput>();
+    }
 
     private void Update()
     {
         if (isLerping)
         {
-            float distCovered = (Time.time - startTime) * cameraSpeed;
+            float distCovered = (Time.time - startTime) * travellingSpeed;
 
             float fractionOfPositionJourney = distCovered / positionTravelLength;
             float fractionOfRotationJourney = distCovered / rotationTravelLength;
@@ -38,10 +44,35 @@ public class CameraHandler : MonoBehaviour
                 callback?.Invoke();
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        // Zoom => transform.position += cameraSpeed * Time.deltaTime * transform.forward;
 
         if (cameraMode == CameraMode.Roaming)
         {
+            Keyboard keyboard = Keyboard.current;
 
+            if (keyboard.wKey.IsPressed())
+            {
+                transform.position += roamingSpeed * Time.deltaTime * transform.up;
+            }
+
+            if (keyboard.dKey.IsPressed())
+            {
+                transform.position += roamingSpeed * Time.deltaTime * transform.right;
+            }
+
+            if (keyboard.sKey.IsPressed())
+            {
+                transform.position -= roamingSpeed * Time.deltaTime * transform.up;
+            }
+
+            if (keyboard.aKey.IsPressed())
+            {
+                transform.position -= roamingSpeed * Time.deltaTime * transform.right;
+            }
         }
     }
 

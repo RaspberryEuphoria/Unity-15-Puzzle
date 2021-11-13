@@ -1,4 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 public enum Edge
 {
@@ -54,7 +57,7 @@ public class Edges
     }
 }
 
-public class JigsawPiece : MonoBehaviour
+public class JigsawPiece : MonoBehaviour, IPointerDownHandler
 {
     public Edges edges;
 
@@ -81,8 +84,8 @@ public class JigsawPiece : MonoBehaviour
             //}
         }
     }
-    
-    private void OnMouseDown()
+
+    public void OnPointerDown(PointerEventData eventData)
     {
         this.isSelected = !this.isSelected;
         this.offset = this.transform.position - this.GetHitPoint();
@@ -115,7 +118,7 @@ public class JigsawPiece : MonoBehaviour
     private Vector3 GetHitPoint()
     {
         Plane plane = new Plane(Camera.main.transform.forward, transform.position);
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         plane.Raycast(ray, out float dist);
 
         return ray.GetPoint(dist);
