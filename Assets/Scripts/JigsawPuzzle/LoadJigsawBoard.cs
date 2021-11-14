@@ -133,7 +133,11 @@ public class LoadJigsawBoard : MonoBehaviour
     {
         this.transform.rotation = Quaternion.Euler(rotation);
         this.transform.localScale = new Vector3(1f + puzzleProperties.scaleModifier, 1f, 1f + puzzleProperties.scaleModifier);
-        this.support.transform.localScale = new Vector3((1f * this.puzzleProperties.colCount) / 2f, 1, (1f * this.puzzleProperties.rowCount) / 2f);
+        this.support.transform.localScale = new Vector3(
+            ((1f + puzzleProperties.scaleModifier) * this.puzzleProperties.colCount) / 2f,
+            1,
+            ((1f + puzzleProperties.scaleModifier) * this.puzzleProperties.rowCount) / 2f
+        );
 
         CameraHandler camera = configuration.gameCamera.GetComponent<CameraHandler>();
 

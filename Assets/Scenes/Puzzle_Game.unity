@@ -4224,7 +4224,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b724611bd6243c48850f1642a6d8cc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 1382709110}
+  views:
+    starting: {fileID: 1382709110}
+    minLimit: {fileID: 1706055528}
+    maxLimit: {fileID: 967276950}
   allowCustomTexture: 1
   gameCamera: {fileID: 1823456852}
   customTexture: {fileID: 2800000, guid: 7a89924da200f1b43ba5b22e92819a12, type: 3}
@@ -24255,6 +24258,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 965202251}
   m_Mesh: {fileID: 5662854340455887957, guid: 288b96789580a16489fe2fe85791711d, type: 3}
+--- !u!1 &967276949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 967276950}
+  m_Layer: 0
+  m_Name: JigsawPuzzle_Position_Max
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &967276950
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967276949}
+  m_LocalRotation: {x: -0.49860856, y: -0.50214326, z: 0.4989589, w: -0.5002817}
+  m_LocalPosition: {x: 370, y: 150, z: 465.26077}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1328265472}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 110, y: 0, z: 180}
 --- !u!1 &969028154
 GameObject:
   m_ObjectHideFlags: 0
@@ -25227,7 +25260,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b724611bd6243c48850f1642a6d8cc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 318650693}
+  views:
+    starting: {fileID: 318650693}
+    minLimit: {fileID: 0}
+    maxLimit: {fileID: 0}
   allowCustomTexture: 1
   gameCamera: {fileID: 1823456852}
   customTexture: {fileID: 2800000, guid: bdfb3989c73b5ea4880643b113335917, type: 3}
@@ -34258,6 +34294,8 @@ Transform:
   - {fileID: 1408866142}
   - {fileID: 548676807}
   - {fileID: 1382709110}
+  - {fileID: 1706055528}
+  - {fileID: 967276950}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -39841,6 +39879,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1697904215}
   m_Mesh: {fileID: -5004923422627476491, guid: 288b96789580a16489fe2fe85791711d, type: 3}
+--- !u!1 &1706055527
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1706055528}
+  m_Layer: 0
+  m_Name: JigsawPuzzle_Position_Min
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1706055528
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706055527}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
+  m_LocalPosition: {x: 428.19675, y: -6.947808, z: 501.5738}
+  m_LocalScale: {x: 0.93, y: 1, z: 0.93}
+  m_Children: []
+  m_Father: {fileID: 1328265472}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &1709201840 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6162688310716207409, guid: eff654059fc2f034ea6ee37fd0a7e2dc,
@@ -41884,7 +41952,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca0bc1681e7017b458ae589f0cf52c25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraSpeed: 10
+  travellingSpeed: 10
+  roamingSpeed: 25
 --- !u!114 &1823456854
 MonoBehaviour:
   m_ObjectHideFlags: 0
