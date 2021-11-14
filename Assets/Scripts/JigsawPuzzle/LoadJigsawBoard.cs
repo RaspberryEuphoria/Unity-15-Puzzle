@@ -137,7 +137,7 @@ public class LoadJigsawBoard : MonoBehaviour
 
         CameraHandler camera = configuration.gameCamera.GetComponent<CameraHandler>();
 
-        camera.StartTravelling(this.configuration.cameraTransform, () => {
+        camera.StartTravelling(this.configuration.views.starting, () => {
             camera.SetCameraMode(this.configuration.cameraMode);
         });
     }

@@ -118,7 +118,7 @@ public class LoadBoard : MonoBehaviour
         hiddenTile.Hide();
         tiles.ForEach(tile => tile.SetIsSwappable(tile.IsSwappable(tiles, hiddenTile, rowAndColCount, matrix)));
         
-        configuration.gameCamera.GetComponent<CameraHandler>().StartTravelling(configuration.cameraTransform, () => {
+        configuration.gameCamera.GetComponent<CameraHandler>().StartTravelling(configuration.views.starting, () => {
             boardObject.GetComponent<BoardHandler>().Init(rowAndColCount, tiles, hiddenTile, tileObject, matrix);
         });
     }

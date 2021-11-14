@@ -6,9 +6,20 @@ public enum CameraMode
     Roaming
 }
 
+[System.Serializable]
+public class Views
+{
+    [Tooltip("Default view when starting a game.")]
+    public Transform starting;
+    [Tooltip("Minimal values for x, y, and z positions.")]
+    public Transform minLimit;
+    [Tooltip("Maximal values for x, y, and z positions.")]
+    public Transform maxLimit;
+}
+
 public class Configuration : MonoBehaviour
 {
-    public Transform cameraTransform;
+    public Views views;
     public bool allowCustomTexture = false;
     public Camera gameCamera;
     public Texture2D customTexture;
