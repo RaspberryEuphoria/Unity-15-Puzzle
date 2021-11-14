@@ -87,12 +87,15 @@ public class JigsawPiece : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        this.isSelected = !this.isSelected;
-        this.offset = this.transform.position - this.GetHitPoint();
-
-        if (!this.isSelected)
+        if (eventData.button == PointerEventData.InputButton.Left)
         {
-            this.transform.position = new Vector3(this.transform.position.x, defaultPositionY, this.transform.position.z);
+            this.isSelected = !this.isSelected;
+            this.offset = this.transform.position - this.GetHitPoint();
+
+            if (!this.isSelected)
+            {
+                this.transform.position = new Vector3(this.transform.position.x, defaultPositionY, this.transform.position.z);
+            }
         }
     }
 

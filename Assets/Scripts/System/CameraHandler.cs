@@ -3,8 +3,9 @@ using UnityEngine.InputSystem;
 
 public class CameraHandler : MonoBehaviour
 {
-    public float travellingSpeed = 1.0f;
-    public float roamingSpeed = 1.0f;
+    public float travellingSpeed = 10f;
+    public float roamingSpeed = 25f;
+    public float zoomingSpeed = 75f;
 
     private float startTime;
     private Transform target;
@@ -15,6 +16,7 @@ public class CameraHandler : MonoBehaviour
 
     private System.Action callback;
     private PlayerInput playerInput;
+    private Views views;
 
     private void Start()
     {
@@ -56,22 +58,39 @@ public class CameraHandler : MonoBehaviour
 
             if (keyboard.wKey.IsPressed())
             {
-                transform.position += roamingSpeed * Time.deltaTime * transform.up;
+                    transform.position += roamingSpeed * Time.deltaTime * transform.up;
             }
 
             if (keyboard.dKey.IsPressed())
             {
-                transform.position += roamingSpeed * Time.deltaTime * transform.right;
+                    transform.position += roamingSpeed * Time.deltaTime * transform.right;
             }
 
             if (keyboard.sKey.IsPressed())
             {
-                transform.position -= roamingSpeed * Time.deltaTime * transform.up;
+                    transform.position -= roamingSpeed * Time.deltaTime * transform.up;
             }
 
             if (keyboard.aKey.IsPressed())
             {
-                transform.position -= roamingSpeed * Time.deltaTime * transform.right;
+                
+                    transform.position -= roamingSpeed * Time.deltaTime * transform.right;
+            }
+        }
+
+        Mouse mouse = Mouse.current;
+
+        if (mouse.scroll.IsPressed())
+        {
+            Vector2 axis = mouse.scroll.ReadValue();
+
+            if (axis.y > 0)
+            {
+                transform.position += zoomingSpeed * Time.deltaTime * transform.forward;
+            }
+            else
+            {
+                transform.position -= zoomingSpeed * Time.deltaTime * transform.forward;
             }
         }
     }
@@ -79,6 +98,11 @@ public class CameraHandler : MonoBehaviour
     public void SetCameraMode(CameraMode cameraMode)
     {
         this.cameraMode = cameraMode;
+    }
+
+    public void SetViews(Views views)
+    {
+        this.views = views;
     }
 
     public void StartTravelling(Transform newTarget, System.Action newCallback = null)

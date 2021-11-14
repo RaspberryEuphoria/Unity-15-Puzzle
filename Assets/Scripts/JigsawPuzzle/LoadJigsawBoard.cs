@@ -143,6 +143,7 @@ public class LoadJigsawBoard : MonoBehaviour
 
         camera.StartTravelling(this.configuration.views.starting, () => {
             camera.SetCameraMode(this.configuration.cameraMode);
+            camera.SetViews(this.configuration.views);
         });
     }
 
