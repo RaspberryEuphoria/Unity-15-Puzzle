@@ -74,31 +74,6 @@ public class JigsawPuzzleProperties : ScriptableObject
     }
 }
 
-[System.Serializable]
-public class DifficultyCamera
-{
-    public Transform easyTransform;
-    public Transform mediumTransform;
-    public Transform hardTransform;
-    public Transform veryHardTransform;
-
-    public Transform GetTransform(Difficulty difficulty)
-    {
-        switch (difficulty)
-        {
-            case Difficulty.Easy:
-                return easyTransform;
-            case Difficulty.Medium: 
-                return mediumTransform;
-            case Difficulty.Hard:
-                return hardTransform;
-            case Difficulty.VeryHard:
-            default:
-                return veryHardTransform;
-        }
-    }
-}
-
 public class LoadJigsawBoard : MonoBehaviour
 {
     [Tooltip("Base board object. Should not be changed lightly!")]
@@ -106,7 +81,6 @@ public class LoadJigsawBoard : MonoBehaviour
     public GameObject support;
     public Difficulty puzzleDifficulty = Difficulty.Easy;
     public int scaleFactor;
-    public DifficultyCamera difficultyCamera;
 
     private JigsawPuzzleProperties puzzleProperties;
 
@@ -143,7 +117,7 @@ public class LoadJigsawBoard : MonoBehaviour
 
         camera.StartTravelling(this.configuration.views.starting, () => {
             camera.SetCameraMode(this.configuration.cameraMode);
-            camera.SetViews(this.configuration.views);
+            camera.SetBorders(this.configuration.views.borders);
         });
     }
 

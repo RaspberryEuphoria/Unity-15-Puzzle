@@ -5,21 +5,12 @@ public class LaunchGame : MonoBehaviour
 {
     public List<GameObject> games;
 
-    void Start()
-    {
-    }
-
-    void Update()
-    {
-
-    }
-
     public void StartNewGame(string gameName)
     {
         GameObject newGame = games.Find(g => g.name == gameName);
         Configuration newGameConfiguration = newGame.GetComponent<Configuration>();
 
-        if (newGameConfiguration.allowCustomTexture)
+        if (newGameConfiguration.allowTextureSelection)
         {
             StartCoroutine(LoadCustomTexture.GetCustomTexture(customTexture => { 
                 newGameConfiguration.SetCustomTexture(customTexture);

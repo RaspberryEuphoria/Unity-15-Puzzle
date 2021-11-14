@@ -15,14 +15,7 @@ public class CameraHandler : MonoBehaviour
     private CameraMode cameraMode;
 
     private System.Action callback;
-    private Views views;
-    private BordersColliders bordersColliders;
-
-    private bool blockedTop = false;
-    private bool blockedRight = false;
-    private bool blockedBottom = false;
-    private bool blockedLeft = false;
-
+    private Borders borders;
 
     private void Update()
     {
@@ -48,82 +41,51 @@ public class CameraHandler : MonoBehaviour
             }
         }
     }
+   
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (bordersColliders == null)
+        if (borders == null)
         {
             return;
         }
 
-        if (collision.collider == bordersColliders.borders.top)
-        {
-            blockedTop = true;
-        }
-        else if (collision.collider == bordersColliders.borders.right)
-        {
-            blockedRight = true;
-        }
-        else if (collision.collider == bordersColliders.borders.bottom)
-        {
-            blockedBottom = true;
-        }
-        else if (collision.collider == bordersColliders.borders.left)
-        {
-            blockedLeft = true;
-        }
+        borders.CheckCollision(collision.collider, true);
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        if (bordersColliders == null)
+        if (borders == null)
         {
             return;
         }
 
-        if (collision.collider == bordersColliders.borders.top)
-        {
-            blockedTop = false;
-        }
-        else if (collision.collider == bordersColliders.borders.right)
-        {
-            blockedRight = false;
-        }
-        else if (collision.collider == bordersColliders.borders.bottom)
-        {
-            blockedBottom = false;
-        }
-        else if (collision.collider == bordersColliders.borders.left)
-        {
-            blockedLeft = false;
-        }
+        borders.CheckCollision(collision.collider, false);
     }
 
     private void FixedUpdate()
     {
         if (cameraMode == CameraMode.Roaming)
         {
-   
             Keyboard keyboard = Keyboard.current;
 
-            if (!blockedTop && keyboard.wKey.IsPressed())
+            if (!borders.top.isHit && keyboard.wKey.IsPressed())
             {
                 transform.position += roamingSpeed * Time.deltaTime * transform.up;
             }
 
-            if (!blockedRight && keyboard.dKey.IsPressed())
+            if (!borders.right.isHit && keyboard.dKey.IsPressed())
             {
                 transform.position += roamingSpeed * Time.deltaTime * transform.right;
             }
 
-            if (!blockedBottom && keyboard.sKey.IsPressed())
+            if (!borders.bottom.isHit && keyboard.sKey.IsPressed())
             {
                 transform.position -= roamingSpeed * Time.deltaTime * transform.up;
             }
 
-            if (!blockedLeft && keyboard.aKey.IsPressed())
+            if (!borders.left.isHit && keyboard.aKey.IsPressed())
             {
-
                 transform.position -= roamingSpeed * Time.deltaTime * transform.right;
             }
             
@@ -151,10 +113,9 @@ public class CameraHandler : MonoBehaviour
         this.cameraMode = cameraMode;
     }
 
-    public void SetViews(Views views)
+    public void SetBorders(Borders borders)
     {
-        this.views = views;
-        this.bordersColliders = views.borders.GetComponent<BordersColliders>();
+        this.borders = borders;
     }
 
     public void StartTravelling(Transform newTarget, System.Action newCallback = null)
