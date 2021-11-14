@@ -15,13 +15,14 @@ public class CameraHandler : MonoBehaviour
     private CameraMode cameraMode;
 
     private System.Action callback;
-    private PlayerInput playerInput;
     private Views views;
+    private BordersColliders bordersColliders;
 
-    private void Start()
-    {
-        playerInput = GetComponent<PlayerInput>();
-    }
+    private bool blockedTop = false;
+    private bool blockedRight = false;
+    private bool blockedBottom = false;
+    private bool blockedLeft = false;
+
 
     private void Update()
     {
@@ -48,34 +49,84 @@ public class CameraHandler : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (bordersColliders == null)
+        {
+            return;
+        }
+
+        if (collision.collider == bordersColliders.borders.top)
+        {
+            blockedTop = true;
+        }
+        else if (collision.collider == bordersColliders.borders.right)
+        {
+            blockedRight = true;
+        }
+        else if (collision.collider == bordersColliders.borders.bottom)
+        {
+            blockedBottom = true;
+        }
+        else if (collision.collider == bordersColliders.borders.left)
+        {
+            blockedLeft = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (bordersColliders == null)
+        {
+            return;
+        }
+
+        if (collision.collider == bordersColliders.borders.top)
+        {
+            blockedTop = false;
+        }
+        else if (collision.collider == bordersColliders.borders.right)
+        {
+            blockedRight = false;
+        }
+        else if (collision.collider == bordersColliders.borders.bottom)
+        {
+            blockedBottom = false;
+        }
+        else if (collision.collider == bordersColliders.borders.left)
+        {
+            blockedLeft = false;
+        }
+    }
+
     private void FixedUpdate()
     {
-        // Zoom => transform.position += cameraSpeed * Time.deltaTime * transform.forward;
-
         if (cameraMode == CameraMode.Roaming)
         {
+   
             Keyboard keyboard = Keyboard.current;
 
-            if (keyboard.wKey.IsPressed())
+            if (!blockedTop && keyboard.wKey.IsPressed())
             {
-                    transform.position += roamingSpeed * Time.deltaTime * transform.up;
+                transform.position += roamingSpeed * Time.deltaTime * transform.up;
             }
 
-            if (keyboard.dKey.IsPressed())
+            if (!blockedRight && keyboard.dKey.IsPressed())
             {
-                    transform.position += roamingSpeed * Time.deltaTime * transform.right;
+                transform.position += roamingSpeed * Time.deltaTime * transform.right;
             }
 
-            if (keyboard.sKey.IsPressed())
+            if (!blockedBottom && keyboard.sKey.IsPressed())
             {
-                    transform.position -= roamingSpeed * Time.deltaTime * transform.up;
+                transform.position -= roamingSpeed * Time.deltaTime * transform.up;
             }
 
-            if (keyboard.aKey.IsPressed())
+            if (!blockedLeft && keyboard.aKey.IsPressed())
             {
-                
-                    transform.position -= roamingSpeed * Time.deltaTime * transform.right;
+
+                transform.position -= roamingSpeed * Time.deltaTime * transform.right;
             }
+            
         }
 
         Mouse mouse = Mouse.current;
@@ -103,6 +154,7 @@ public class CameraHandler : MonoBehaviour
     public void SetViews(Views views)
     {
         this.views = views;
+        this.bordersColliders = views.borders.GetComponent<BordersColliders>();
     }
 
     public void StartTravelling(Transform newTarget, System.Action newCallback = null)

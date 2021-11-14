@@ -11,10 +11,8 @@ public class Views
 {
     [Tooltip("Default view when starting a game.")]
     public Transform starting;
-    [Tooltip("Minimal values for x, y, and z positions.")]
-    public Transform minLimit;
-    [Tooltip("Maximal values for x, y, and z positions.")]
-    public Transform maxLimit;
+    [Tooltip("A gameobject with four colliders to represent camera limits.")]
+    public GameObject borders;
 }
 
 public class Configuration : MonoBehaviour
